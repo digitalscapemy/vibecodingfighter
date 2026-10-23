@@ -23,20 +23,35 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    phone, calendar with time slots, Malay labels like 'Tempah Slot', minimal
    white interface with blue accent, realistic device mockup on a desk."
 
-4. hasil-pengurusan.webp (16:10)
-   Prompt: "Modern admin dashboard UI mockup on a laptop for inventory and staff
-   management, tables, charts, task list, Malay labels like 'Stok' and
-   'Pekerja', white and blue UI, realistic desk scene."
+4. hasil-crm.webp      (16:10)
+   Prompt: "CRM web app UI mockup on a laptop: customer list, customer profile
+   with purchase history and follow-up notes, Malay labels like 'Pelanggan'
+   and 'Follow-up', clean UI, realistic desk scene."
+
+4b. hasil-stok.webp    (16:10)
+   Prompt: "Inventory management UI mockup: stock in/out table, remaining
+   stock, red low-stock alert badges, Malay labels like 'Stok Masuk' and
+   'Stok Rendah', realistic laptop on a warehouse desk."
 
 5. hasil-jualan.webp   (16:10)
    Prompt: "Mobile and desktop online store UI mockup, product catalog grid,
-   cart, order list, Malay labels like 'Pesanan', clean design, realistic
-   devices on a cafe table."
+   cart, order list with status badges, Malay labels like 'Pesanan',
+   clean design, realistic devices on a cafe table."
 
-6. hasil-lain.webp     (16:10)
-   Prompt: "Collage of three web app screens floating in 3D space: analytics
-   dashboard, membership portal, complaint form, dark background with neon
-   blue and yellow glow."
+5b. hasil-projek.webp  (16:10)
+   Prompt: "Project management kanban board UI mockup: task cards, deadlines,
+   team avatars, progress bars, Malay labels like 'Tugasan' and 'Siap',
+   realistic laptop in a modern office."
+
+5c. hasil-dashboard.webp (16:10)
+   Prompt: "Business analytics dashboard UI mockup: sales line chart, KPI
+   cards, bar charts, Malay labels like 'Jualan Bulan Ini', dark theme
+   with yellow and blue accents, on a large monitor."
+
+6. hasil-lain.webp     (21:9, landskap lebar)
+   Prompt: "Wide collage of three web app screens floating in 3D space:
+   membership portal, complaint form, report dashboard, dark background
+   with neon blue and yellow glow."
 
 7. modul-1.webp        (16:10)
    Prompt: "Close-up of a laptop terminal window running an AI coding assistant
