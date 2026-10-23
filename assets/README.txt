@@ -12,7 +12,8 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
 1. hero.png            (3:4)  — SUDAH ADA
    Poster Vibe Coding Fighter.
 
-2. masalah.webp        (4:3)
+2. masalah.mp4 + masalah-poster.webp  (16:9) — SUDAH ADA (video loop tanpa audio)
+   Jika mahu tukar, prompt asal:
    Prompt: "A Malaysian small business owner in his 30s sitting at a cluttered
    desk late at night, staring at a laptop showing code errors, stacks of paper
    invoices and a phone full of WhatsApp messages beside him, tired expression,
