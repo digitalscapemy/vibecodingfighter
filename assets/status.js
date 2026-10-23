@@ -36,6 +36,10 @@
   if (sum && ![...sum.children].some(x => !x.hidden)) sum.hidden = true;
   document.querySelectorAll('[data-first]').forEach(el => { if (first) el.textContent = ', ' + first; });
 
+  // Kandungan khas peserta: hanya bila ada No. order
+  document.querySelectorAll('[data-need-ref]').forEach(el => { el.hidden = !d.ref; });
+  document.querySelectorAll('[data-no-ref]').forEach(el => { el.hidden = !!d.ref; });
+
   // WhatsApp dengan maklumat order
   document.querySelectorAll('[data-wa]').forEach(a => {
     const msg = a.dataset.wa + (d.name ? '\nNama: ' + d.name : '') + (d.ref ? '\nNo. order: ' + d.ref : '') + (amtTxt ? '\nJumlah: ' + amtTxt : '');

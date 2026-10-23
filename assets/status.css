@@ -35,6 +35,16 @@ h1 span { color: var(--volt); }
 .info li { display: flex; gap: 11px; font-size: 14.5px; font-weight: 600; line-height: 1.45; color: rgba(255,255,255,.88); }
 .info li svg { flex: 0 0 auto; width: 19px; height: 19px; margin-top: 1px; color: var(--accent); }
 
+.next { margin-top: 18px; text-align: left; }
+.next-h { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--volt); margin-bottom: 10px; text-align: center; }
+.step-box { display: flex; gap: 12px; padding: 14px; border-radius: 16px; background: #0b0b12; border: 1px solid var(--line); margin-bottom: 10px; }
+.step-box:first-of-type { border-color: rgba(37,211,102,.45); }
+.step-n { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; display: grid; place-items: center; background: var(--volt); color: var(--ink); font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; }
+.step-box b { display: block; font-family: 'Poppins', sans-serif; font-size: 16px; color: #fff; margin-bottom: 2px; }
+.step-box p { font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.step-box p strong { color: var(--volt); }
+.step-box .btn { margin-top: 12px; padding: 12px 16px; font-size: 15px; }
+
 .cd { margin-top: 18px; padding: 14px; border-radius: 18px; border: 1.5px solid rgba(255,212,0,.5); background: linear-gradient(180deg, rgba(255,212,0,.08), transparent); }
 .cd p { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--volt); margin-bottom: 10px; }
 .cd-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
