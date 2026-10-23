@@ -4,32 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vibe Coding Fighter — Kelas LIVE Bina Sistem Guna Claude Code | 31 Oktober 2026</title>
-  <meta name="description" content="Kelas LIVE 31 Oktober 2026 bersama Coach Mikhail. Bina sistem dan web app sebenar menggunakan Claude Code, dari asas sehingga live di internet. Tak perlu latar belakang programming." />
+  <meta name="description" content="Kelas LIVE 31 Oktober 2026 bersama Coach Mikhail. Bina sistem dan web app sendiri guna Claude Code, dari kosong sampai live di internet. Tak perlu pandai coding." />
   <meta property="og:title" content="Vibe Coding Fighter — From Zero To Live" />
-  <meta property="og:description" content="Kelas LIVE bina sistem menggunakan Claude Code. Sabtu, 31 Oktober 2026." />
+  <meta property="og:description" content="Kelas LIVE bina sistem guna Claude Code. Sabtu, 31 Oktober 2026." />
   <meta property="og:image" content="./assets/og-image.png" />
   <meta property="og:type" content="website" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
             body: ['Manrope', 'sans-serif'],
           },
           colors: {
             ink: '#0b0b12',
             night: '#07070c',
             volt: '#ffd400',
-            electric: '#2457ff',
-            mist: '#f4f5f8',
-            line: '#e6e8ef',
+            electric: '#5b8cff',
+            mist: '#0f1019',
+            line: '#1f2130',
+            card: '#12131d',
           },
         },
       },
@@ -51,22 +52,22 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; color: #0b0b12; background: #fff; overflow-x: hidden; }
-    h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.02em; }
+    body { font-family: 'Manrope', sans-serif; color: #e9ebf2; background: #07070c; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; letter-spacing: -0.01em; }
 
     /* Garis bawah biru untuk penekanan */
-    .mark { background-image: linear-gradient(transparent 62%, rgba(36,87,255,.22) 62%); padding: 0 .1em; }
+    .mark { background-image: linear-gradient(transparent 62%, rgba(91,140,255,.35) 62%); padding: 0 .1em; }
     .mark-dark { background-image: linear-gradient(transparent 62%, rgba(255,212,0,.35) 62%); padding: 0 .1em; }
 
     /* Butang utama */
     .btn {
       position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
       background: #ffd400; color: #0b0b12; font-weight: 800; border-radius: 14px;
-      box-shadow: 0 4px 0 #0b0b12; border: 2px solid #0b0b12;
+      box-shadow: 0 4px 0 #a88a00; border: 0;
       transition: transform .15s ease, box-shadow .15s ease;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #0b0b12; }
-    .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #0b0b12; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #a88a00, 0 12px 30px -8px rgba(255,212,0,.5); }
+    .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #a88a00; }
     .btn::after {
       content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
       background: linear-gradient(100deg, transparent, rgba(255,255,255,.7), transparent);
@@ -78,16 +79,14 @@
     .ph {
       width: 100%; display: grid; place-items: center; text-align: center; border-radius: 16px;
       background:
-        repeating-linear-gradient(135deg, rgba(36,87,255,.06) 0 12px, transparent 12px 24px),
-        linear-gradient(160deg, #eef1ff, #f7f8fb);
-      border: 2px dashed rgba(36,87,255,.35); color: #2457ff; padding: 1rem;
+        repeating-linear-gradient(135deg, rgba(255,212,0,.06) 0 12px, transparent 12px 24px),
+        linear-gradient(160deg, #141523, #0c0d15);
+      border: 2px dashed rgba(255,212,0,.35); color: #ffd400; padding: 1rem;
     }
     .ph-inner { display: flex; flex-direction: column; gap: .35rem; align-items: center; }
-    .ph-tag { font-size: 10px; font-weight: 800; letter-spacing: .12em; background: #2457ff; color: #fff; padding: 3px 8px; border-radius: 6px; }
-    .ph strong { font-size: .9rem; color: #0b0b12; max-width: 26ch; }
-    .ph code { font-size: 11px; color: #5b6477; }
-    .dark .ph { background: repeating-linear-gradient(135deg, rgba(255,212,0,.07) 0 12px, transparent 12px 24px), #12121c; border-color: rgba(255,212,0,.4); }
-    .dark .ph strong { color: #fff; }
+    .ph-tag { font-size: 10px; font-weight: 800; letter-spacing: .12em; background: #ffd400; color: #0b0b12; padding: 3px 8px; border-radius: 6px; }
+    .ph strong { font-size: .9rem; color: #fff; max-width: 26ch; }
+    .ph code { font-size: 11px; color: rgba(255,255,255,.45); }
 
     /* Animasi masuk bila skrol */
     .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -128,72 +127,60 @@
 <body class="antialiased">
 
   <!-- =========================================================
-       1. HERO
+       1. HERO (satu column, tengah)
   ========================================================== -->
-  <section class="dark relative bg-night text-white overflow-hidden">
-    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(600px 400px at 85% 30%, rgba(36,87,255,.45), transparent 70%), radial-gradient(500px 360px at 10% 90%, rgba(255,212,0,.18), transparent 70%);"></div>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(700px 420px at 50% 0%, rgba(91,140,255,.28), transparent 70%), radial-gradient(500px 360px at 50% 100%, rgba(255,212,0,.12), transparent 70%);"></div>
 
-    <div class="relative max-w-6xl mx-auto px-5 pt-8 pb-14 lg:pb-20">
-      <!-- Jenama -->
-      <div class="flex items-center justify-between mb-10 rv">
-        <span class="font-display font-bold tracking-tight">Digital Scape Venture</span>
+    <div class="relative max-w-3xl mx-auto px-5 pt-10 pb-14 text-center">
+      <div class="flex justify-center mb-6 rv">
         <span class="inline-flex items-center gap-2 text-xs font-bold bg-white/10 border border-white/15 rounded-full px-3 py-1.5">
-          <span class="live-dot"></span> KELAS LIVE
+          <span class="live-dot"></span> KELAS LIVE · SABTU, 31 OKTOBER 2026
         </span>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_.9fr] gap-10 lg:gap-14 items-center">
-        <div>
-          <p class="text-volt font-bold text-sm tracking-wide mb-4 rv">VIBE CODING FIGHTER · SABTU, 31 OKTOBER 2026</p>
-          <h1 class="text-[2.4rem] leading-[1.05] sm:text-5xl lg:text-[3.6rem] font-extrabold mb-5 rv rv-d1">
-            Anda yang reka sistemnya.<br /><span class="mark-dark">Claude Code</span> yang tulis kodnya.
-          </h1>
-          <p class="text-white/75 text-lg leading-relaxed max-w-xl mb-8 rv rv-d2">
-            Kelas LIVE sehari untuk bina sistem dan web app sebenar — dari folder kosong
-            sehingga sistem anda boleh dibuka oleh pelanggan di internet.
-            Tak perlu latar belakang programming.
-          </p>
+      <h1 class="text-[2.2rem] leading-[1.1] sm:text-5xl lg:text-[3.4rem] font-extrabold mb-5 rv rv-d1">
+        Bina sistem sendiri guna <span class="mark-dark">Claude Code</span>.<br />Tak perlu pandai coding.
+      </h1>
+      <p class="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto mb-8 rv rv-d2">
+        Kelas LIVE sehari bersama Coach Mikhail. Anda akan bina sistem dan web app
+        sebenar — bermula dari folder kosong, sampai sistem anda boleh dibuka
+        oleh pelanggan di internet.
+      </p>
 
-          <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 rv rv-d3">
-            <a href="#daftar" class="btn px-8 py-4 text-lg">Daftar Kelas — dari RM99</a>
-            <a href="#silibus" class="text-white/80 font-semibold underline underline-offset-4 decoration-white/30 hover:decoration-volt">Lihat silibus dahulu</a>
-          </div>
+      <!-- Poster -->
+      <div class="relative max-w-[420px] mx-auto mb-10 rv rv-d2">
+        <div class="absolute -inset-6 bg-electric/25 blur-3xl rounded-full"></div>
+        <img src="./assets/hero.png" alt="Vibe Coding Fighter — From Zero To Live bersama Coach Mikhail"
+             class="relative floaty rounded-2xl w-full shadow-2xl ring-1 ring-white/10"
+             data-ph="Poster hero Vibe Coding Fighter" data-ratio="3/4" onerror="ph(this)" />
+      </div>
 
-          <!-- Countdown -->
-          <div class="rv rv-d3">
-            <p class="text-xs font-bold tracking-widest text-white/50 mb-2">KELAS BERMULA DALAM</p>
-            <div class="flex gap-2" data-countdown>
-              <div class="bg-white/5 border border-white/10 rounded-xl w-[68px] py-2.5 text-center"><b data-cd="d" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">HARI</span></div>
-              <div class="bg-white/5 border border-white/10 rounded-xl w-[68px] py-2.5 text-center"><b data-cd="h" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">JAM</span></div>
-              <div class="bg-white/5 border border-white/10 rounded-xl w-[68px] py-2.5 text-center"><b data-cd="m" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">MINIT</span></div>
-              <div class="bg-white/5 border border-white/10 rounded-xl w-[68px] py-2.5 text-center"><b data-cd="s" class="block font-display text-2xl text-volt">00</b><span class="text-[10px] text-white/50 font-bold">SAAT</span></div>
-            </div>
-          </div>
-        </div>
+      <a href="#daftar" class="btn px-10 py-4 text-lg w-full sm:w-auto rv">Daftar Kelas — dari RM99</a>
 
-        <!-- Poster -->
-        <div class="relative max-w-[440px] w-full mx-auto rv rv-d2">
-          <div class="absolute -inset-4 bg-electric/30 blur-3xl rounded-full"></div>
-          <img src="./assets/hero.png" alt="Vibe Coding Fighter — From Zero To Live bersama Coach Mikhail"
-               class="relative floaty rounded-2xl w-full shadow-2xl ring-1 ring-white/10"
-               data-ph="Poster hero Vibe Coding Fighter" data-ratio="3/4" onerror="ph(this)" />
+      <!-- Countdown -->
+      <div class="mt-8 rv">
+        <p class="text-xs font-bold tracking-widest text-white/50 mb-3">KELAS AKAN BERMULA DALAM</p>
+        <div class="flex justify-center gap-2">
+          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="d" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">HARI</span></div>
+          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="h" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">JAM</span></div>
+          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="m" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">MINIT</span></div>
+          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="s" class="block font-display text-2xl text-volt">00</b><span class="text-[10px] text-white/50 font-bold">SAAT</span></div>
         </div>
       </div>
-    </div>
 
-    <!-- Fakta ringkas -->
-    <div class="relative border-t border-white/10 bg-white/[.03]">
-      <div class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-        <div><p class="text-white/45 text-xs font-bold">TARIKH</p><p class="font-bold">Sabtu, 31 Okt 2026</p></div>
-        <div><p class="text-white/45 text-xs font-bold">FORMAT</p><p class="font-bold">Kelas LIVE + praktikal</p></div>
-        <div><p class="text-white/45 text-xs font-bold">TRAINER</p><p class="font-bold">Coach Mikhail</p></div>
-        <div><p class="text-white/45 text-xs font-bold">YURAN</p><p class="font-bold"><s class="text-white/40">RM199</s> <span class="text-volt">dari RM99</span></p></div>
+      <!-- Fakta ringkas (grid) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 text-sm rv">
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TARIKH</p><p class="font-bold">Sabtu, 31 Okt</p></div>
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">FORMAT</p><p class="font-bold">LIVE + praktikal</p></div>
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TRAINER</p><p class="font-bold">Coach Mikhail</p></div>
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">YURAN</p><p class="font-bold"><s class="text-white/40">RM199</s> <span class="text-volt">RM99</span></p></div>
       </div>
     </div>
   </section>
 
   <!-- Jalur sistem -->
-  <div class="bg-volt border-y-2 border-ink overflow-hidden py-3">
+  <div class="bg-volt overflow-hidden py-3">
     <div class="marquee font-display font-extrabold text-ink text-lg whitespace-nowrap">
       <span class="px-6">SISTEM TEMPAHAN ✦ SISTEM PENGURUSAN ✦ SISTEM JUALAN ✦ SISTEM KEAHLIAN ✦ DASHBOARD LAPORAN ✦ FROM ZERO TO LIVE ✦</span>
       <span class="px-6">SISTEM TEMPAHAN ✦ SISTEM PENGURUSAN ✦ SISTEM JUALAN ✦ SISTEM KEAHLIAN ✦ DASHBOARD LAPORAN ✦ FROM ZERO TO LIVE ✦</span>
@@ -203,75 +190,82 @@
   <!-- =========================================================
        2. MASALAH
   ========================================================== -->
-  <section class="py-20 lg:py-24">
-    <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-center">
-      <div class="zoom rv">
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-10">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">TERUS TERANG</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Idea sistem anda dah lama ada. Tapi selalunya tersangkut sebab 4 perkara ni.</h2>
+      </div>
+
+      <div class="zoom mb-8 rv">
         <img src="./assets/masalah.webp" alt="Pemilik bisnes buntu di hadapan laptop"
-             class="w-full aspect-[4/3] object-cover" data-ph="Pemilik bisnes buntu depan laptop, waktu malam" data-ratio="4/3" onerror="ph(this)" />
+             class="w-full aspect-[16/9] object-cover" data-ph="Pemilik bisnes buntu depan laptop, waktu malam" data-ratio="16/9" onerror="ph(this)" />
       </div>
-      <div>
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">KITA BERTERUS TERANG</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-8 rv rv-d1">Idea sistem anda sudah lama ada. Yang menghalang biasanya empat perkara ini.</h2>
-        <ol class="space-y-5">
-          <li class="flex gap-4 rv rv-d1">
-            <span class="font-display font-extrabold text-electric text-xl w-8 shrink-0">01</span>
-            <div><h3 class="font-bold text-lg">Sebut harga developer buat anda terdiam</h3><p class="text-slate-600">Sistem ringkas pun boleh cecah ribuan ringgit — belum dikira kos setiap kali mahu ubah sedikit.</p></div>
-          </li>
-          <li class="flex gap-4 rv rv-d2">
-            <span class="font-display font-extrabold text-electric text-xl w-8 shrink-0">02</span>
-            <div><h3 class="font-bold text-lg">AI beri kod, tapi anda tak tahu nak buat apa dengannya</h3><p class="text-slate-600">Salin, tampal, keluar error. Akhirnya projek disimpan semula dalam folder.</p></div>
-          </li>
-          <li class="flex gap-4 rv rv-d3">
-            <span class="font-display font-extrabold text-electric text-xl w-8 shrink-0">03</span>
-            <div><h3 class="font-bold text-lg">Jalan di laptop, tapi orang lain tak boleh buka</h3><p class="text-slate-600">Hosting, server dan domain nampak seperti dunia lain.</p></div>
-          </li>
-          <li class="flex gap-4 rv rv-d3">
-            <span class="font-display font-extrabold text-electric text-xl w-8 shrink-0">04</span>
-            <div><h3 class="font-bold text-lg">Data bisnes bertaburan</h3><p class="text-slate-600">Tempahan dalam WhatsApp, stok dalam Excel, jualan dalam buku. Susah nak tahu apa yang sebenarnya berlaku.</p></div>
-          </li>
-        </ol>
-        <p class="mt-8 font-bold text-lg rv">Kelas ini disusun untuk selesaikan keempat-empatnya — <span class="mark">dalam satu hari.</span></p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-card border border-line rounded-2xl p-6 rv">
+          <span class="font-display font-extrabold text-volt text-xl">01</span>
+          <h3 class="font-bold text-lg mt-1 mb-1">Upah developer mahal</h3>
+          <p class="text-white/65">Sistem simple pun boleh cecah ribuan ringgit. Itu belum kira caj setiap kali nak ubah sikit.</p>
+        </div>
+        <div class="bg-card border border-line rounded-2xl p-6 rv rv-d1">
+          <span class="font-display font-extrabold text-volt text-xl">02</span>
+          <h3 class="font-bold text-lg mt-1 mb-1">Dapat kod dari AI, tapi tak tahu nak guna macam mana</h3>
+          <p class="text-white/65">Copy, paste, keluar error. Akhirnya projek tu terbiar dalam folder.</p>
+        </div>
+        <div class="bg-card border border-line rounded-2xl p-6 rv">
+          <span class="font-display font-extrabold text-volt text-xl">03</span>
+          <h3 class="font-bold text-lg mt-1 mb-1">Boleh jalan di laptop, tapi orang lain tak boleh buka</h3>
+          <p class="text-white/65">Hosting, server, domain — semuanya nampak macam susah sangat.</p>
+        </div>
+        <div class="bg-card border border-line rounded-2xl p-6 rv rv-d1">
+          <span class="font-display font-extrabold text-volt text-xl">04</span>
+          <h3 class="font-bold text-lg mt-1 mb-1">Data bisnes bersepah</h3>
+          <p class="text-white/65">Tempahan dalam WhatsApp, stok dalam Excel, jualan dalam buku. Susah nak tengok keadaan sebenar bisnes anda.</p>
+        </div>
       </div>
+
+      <p class="mt-10 text-center font-bold text-xl rv">Dalam kelas ni, keempat-empat masalah tu kita selesaikan — <span class="mark-dark">dalam satu hari.</span></p>
     </div>
   </section>
 
   <!-- =========================================================
-       3. HASIL / SISTEM YANG BOLEH DIBINA
+       3. APA YANG BOLEH DIBINA
   ========================================================== -->
-  <section class="py-20 lg:py-24 bg-mist border-y border-line">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="max-w-2xl mb-12">
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">HASIL YANG ANDA BOLEH BINA</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Sistem yang selesaikan kerja harian, bukan projek latihan semata-mata.</h2>
+  <section class="py-20 bg-mist border-y border-line">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">APA YANG ANDA BOLEH BINA</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Sistem yang betul-betul boleh guna dalam bisnes, bukan setakat projek latihan.</h2>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6">
-        <article class="bg-white rounded-3xl p-4 border border-line rv">
+        <article class="bg-card rounded-3xl p-4 border border-line rv">
           <div class="zoom mb-5"><img src="./assets/hasil-booking.webp" alt="Contoh sistem tempahan" class="w-full aspect-[16/10] object-cover" data-ph="Mockup Sistem Tempahan (kalendar & slot)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <h3 class="text-xl font-extrabold mb-1">Sistem Tempahan</h3>
-            <p class="text-slate-600">Pelanggan pilih tarikh dan slot sendiri. Anda tak perlu lagi balas mesej satu per satu.</p>
+            <p class="text-white/65">Pelanggan pilih tarikh dan slot sendiri. Anda tak perlu lagi balas mesej satu-satu.</p>
           </div>
         </article>
-        <article class="bg-white rounded-3xl p-4 border border-line rv rv-d1">
+        <article class="bg-card rounded-3xl p-4 border border-line rv rv-d1">
           <div class="zoom mb-5"><img src="./assets/hasil-pengurusan.webp" alt="Contoh sistem pengurusan" class="w-full aspect-[16/10] object-cover" data-ph="Mockup Sistem Pengurusan (stok, staf, tugasan)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <h3 class="text-xl font-extrabold mb-1">Sistem Pengurusan</h3>
-            <p class="text-slate-600">Stok, pekerja dan tugasan dalam satu paparan — bukan sepuluh fail Excel berasingan.</p>
+            <p class="text-white/65">Stok, staf dan tugasan dalam satu skrin. Tak perlu lagi buka sepuluh fail Excel.</p>
           </div>
         </article>
-        <article class="bg-white rounded-3xl p-4 border border-line rv">
+        <article class="bg-card rounded-3xl p-4 border border-line rv">
           <div class="zoom mb-5"><img src="./assets/hasil-jualan.webp" alt="Contoh sistem jualan" class="w-full aspect-[16/10] object-cover" data-ph="Mockup Sistem Jualan (katalog & pesanan)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <h3 class="text-xl font-extrabold mb-1">Sistem Jualan</h3>
-            <p class="text-slate-600">Katalog, pesanan dan rekod jualan di platform milik anda sendiri.</p>
+            <p class="text-white/65">Katalog, order dan rekod jualan dalam platform anda sendiri.</p>
           </div>
         </article>
-        <article class="bg-white rounded-3xl p-4 border border-line rv rv-d1">
+        <article class="bg-card rounded-3xl p-4 border border-line rv rv-d1">
           <div class="zoom mb-5"><img src="./assets/hasil-lain.webp" alt="Contoh sistem lain" class="w-full aspect-[16/10] object-cover" data-ph="Kolaj: dashboard, keahlian, borang aduan" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
-            <h3 class="text-xl font-extrabold mb-1">Dan sistem lain mengikut keperluan anda</h3>
-            <p class="text-slate-600">Keahlian, borang aduan, dashboard laporan — asas pembinaannya sama.</p>
+            <h3 class="text-xl font-extrabold mb-1">Dan apa-apa sistem yang bisnes anda perlukan</h3>
+            <p class="text-white/65">Sistem keahlian, borang aduan, dashboard laporan — cara bina tetap sama.</p>
           </div>
         </article>
       </div>
@@ -279,66 +273,62 @@
   </section>
 
   <!-- =========================================================
-       4. SILIBUS
+       4. SILIBUS (grid kad, gambar di atas)
   ========================================================== -->
-  <section id="silibus" class="py-20 lg:py-24">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="max-w-2xl mb-12">
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">SILIBUS KELAS</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Empat kemahiran. Satu aliran kerja lengkap dari asas hingga siap.</h2>
+  <section id="silibus" class="py-20">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">SILIBUS KELAS</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">4 kemahiran utama untuk bawa sistem anda dari kosong sampai live.</h2>
       </div>
 
-      <div class="space-y-6">
-        <!-- Modul 1 -->
-        <div class="grid grid-cols-1 md:grid-cols-[.9fr_1.1fr] gap-6 md:gap-10 items-center border border-line rounded-3xl p-4 md:p-6 rv">
-          <div class="zoom"><img src="./assets/modul-1.webp" alt="Claude Code CLI di terminal" class="w-full aspect-[16/10] object-cover" data-ph="Skrin terminal Claude Code CLI" data-ratio="16/10" onerror="ph(this)" /></div>
-          <div>
-            <span class="inline-block bg-ink text-volt font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 01</span>
-            <h3 class="text-2xl font-extrabold mb-2">Asas Claude Code CLI</h3>
-            <p class="text-slate-600 text-lg">Pasang, sediakan projek dan beri arahan yang tepat supaya AI membina mengikut kehendak anda — bukan meneka.</p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <article class="bg-card border border-line rounded-3xl p-4 rv">
+          <div class="zoom mb-5"><img src="./assets/modul-1.webp" alt="Claude Code CLI di terminal" class="w-full aspect-[16/10] object-cover" data-ph="Skrin terminal Claude Code CLI" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="px-2 pb-2">
+            <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 01</span>
+            <h3 class="text-xl font-extrabold mb-2">Asas Claude Code CLI</h3>
+            <p class="text-white/65">Cara install, setup projek dan bagi arahan yang tepat — supaya AI bina ikut apa yang anda nak, bukan main teka.</p>
           </div>
-        </div>
-        <!-- Modul 2 -->
-        <div class="grid grid-cols-1 md:grid-cols-[1.1fr_.9fr] gap-6 md:gap-10 items-center border border-line rounded-3xl p-4 md:p-6 rv">
-          <div class="md:order-2 zoom"><img src="./assets/modul-2.webp" alt="Sistem dipaparkan live di internet" class="w-full aspect-[16/10] object-cover" data-ph="Sistem live dibuka di telefon & laptop" data-ratio="16/10" onerror="ph(this)" /></div>
-          <div class="md:order-1">
-            <span class="inline-block bg-ink text-volt font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 02</span>
-            <h3 class="text-2xl font-extrabold mb-2">Teknik Deploy Sistem Secara Live</h3>
-            <p class="text-slate-600 text-lg">Bawa sistem dari laptop ke internet supaya pelanggan dan pekerja boleh terus menggunakannya melalui pautan sebenar.</p>
+        </article>
+        <article class="bg-card border border-line rounded-3xl p-4 rv rv-d1">
+          <div class="zoom mb-5"><img src="./assets/modul-2.webp" alt="Sistem dipaparkan live di internet" class="w-full aspect-[16/10] object-cover" data-ph="Sistem live dibuka di telefon & laptop" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="px-2 pb-2">
+            <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 02</span>
+            <h3 class="text-xl font-extrabold mb-2">Teknik Deploy Live Sistem</h3>
+            <p class="text-white/65">Naikkan sistem dari laptop ke internet, supaya pelanggan dan staf anda boleh terus guna melalui link sebenar.</p>
           </div>
-        </div>
-        <!-- Modul 3 -->
-        <div class="grid grid-cols-1 md:grid-cols-[.9fr_1.1fr] gap-6 md:gap-10 items-center border border-line rounded-3xl p-4 md:p-6 rv">
-          <div class="zoom"><img src="./assets/modul-3.webp" alt="Auto deploy melalui GitHub" class="w-full aspect-[16/10] object-cover" data-ph="Aliran GitHub → sistem live (auto deploy)" data-ratio="16/10" onerror="ph(this)" /></div>
-          <div>
-            <span class="inline-block bg-ink text-volt font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 03</span>
-            <h3 class="text-2xl font-extrabold mb-2">Teknik Auto Deploy ke GitHub</h3>
-            <p class="text-slate-600 text-lg">Setiap perubahan disimpan dan dinaikkan secara automatik. Anda ubah di laptop, sistem live dikemas kini dengan sendirinya.</p>
+        </article>
+        <article class="bg-card border border-line rounded-3xl p-4 rv">
+          <div class="zoom mb-5"><img src="./assets/modul-3.webp" alt="Auto deploy melalui GitHub" class="w-full aspect-[16/10] object-cover" data-ph="Aliran GitHub → sistem live (auto deploy)" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="px-2 pb-2">
+            <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 03</span>
+            <h3 class="text-xl font-extrabold mb-2">Teknik Auto Deploy ke GitHub</h3>
+            <p class="text-white/65">Setiap kali anda buat perubahan di laptop, sistem live akan update sendiri. Tak perlu upload manual lagi.</p>
           </div>
-        </div>
-        <!-- Modul 4 -->
-        <div class="grid grid-cols-1 md:grid-cols-[1.1fr_.9fr] gap-6 md:gap-10 items-center border border-line rounded-3xl p-4 md:p-6 rv">
-          <div class="md:order-2 zoom"><img src="./assets/modul-4.webp" alt="Pengurusan database" class="w-full aspect-[16/10] object-cover" data-ph="Paparan jadual database (rekod pelanggan)" data-ratio="16/10" onerror="ph(this)" /></div>
-          <div class="md:order-1">
-            <span class="inline-block bg-ink text-volt font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 04</span>
-            <h3 class="text-2xl font-extrabold mb-2">Teknik Urus Database</h3>
-            <p class="text-slate-600 text-lg">Susun dan simpan data pelanggan, tempahan dan jualan dengan betul, supaya sistem kekal kemas walaupun rekod terus bertambah.</p>
+        </article>
+        <article class="bg-card border border-line rounded-3xl p-4 rv rv-d1">
+          <div class="zoom mb-5"><img src="./assets/modul-4.webp" alt="Pengurusan database" class="w-full aspect-[16/10] object-cover" data-ph="Paparan jadual database (rekod pelanggan)" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="px-2 pb-2">
+            <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 04</span>
+            <h3 class="text-xl font-extrabold mb-2">Teknik Manage Database</h3>
+            <p class="text-white/65">Simpan dan susun data pelanggan, tempahan dan jualan dengan betul, supaya sistem tak bersepah bila data makin banyak.</p>
           </div>
-        </div>
+        </article>
       </div>
 
-      <p class="text-center text-slate-500 mt-8 rv">Serta teknik tambahan yang dikongsi terus semasa sesi LIVE.</p>
+      <p class="text-center text-white/50 mt-8 rv">Dan banyak lagi teknik lain yang akan dikongsi masa kelas LIVE.</p>
     </div>
   </section>
 
   <!-- =========================================================
        5. VIDEO DEMO
   ========================================================== -->
-  <section class="dark py-20 lg:py-24 bg-night text-white">
-    <div class="max-w-4xl mx-auto px-5 text-center">
-      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">LIHAT SENDIRI</p>
-      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 rv rv-d1">Dari arahan pertama hingga sistem live.</h2>
-      <p class="text-white/65 text-lg mb-10 rv rv-d2">Beginilah rupa aliran kerja yang anda akan lalui bersama dalam kelas.</p>
+  <section class="py-20 bg-mist border-y border-line">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">TENGOK SENDIRI</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 rv rv-d1">Dari arahan pertama sampai sistem live.</h2>
+      <p class="text-white/65 text-lg mb-10 rv rv-d2">Ini contoh proses yang anda akan buat sendiri dalam kelas nanti.</p>
       <div class="rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl rv">
         <video class="w-full aspect-video object-cover bg-black" autoplay muted loop playsinline preload="metadata"
                poster="./assets/demo-poster.webp" data-ph="Video demo bina sistem (15–40 saat)" data-ratio="16/9" data-file="assets/demo.mp4">
@@ -349,31 +339,32 @@
   </section>
 
   <!-- =========================================================
-       6. TRAINER
+       6. TRAINER (satu column)
   ========================================================== -->
-  <section class="py-20 lg:py-24">
-    <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-[.8fr_1.2fr] gap-10 lg:gap-14 items-start">
-      <div class="rv">
-        <div class="zoom rounded-3xl">
-          <img src="./assets/trainer.png" alt="Coach Mikhail" class="w-full aspect-[4/5] object-cover" data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
-        </div>
-        <div class="grid grid-cols-2 gap-3 mt-4">
-          <div class="bg-mist rounded-2xl p-4 text-center"><b class="font-display text-3xl" data-count="10">0</b><p class="text-xs font-bold text-slate-500">TAHUN BISNES & IT</p></div>
-          <div class="bg-mist rounded-2xl p-4 text-center"><b class="font-display text-3xl" data-count="4">0</b><p class="text-xs font-bold text-slate-500">MODUL PRAKTIKAL</p></div>
-        </div>
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">KENALI TRAINER ANDA</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">"Saya takkan suruh anda hafal kod."</h2>
       </div>
 
-      <div>
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">DARIPADA TRAINER ANDA</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-6 rv rv-d1">"Saya tak akan suruh anda hafal kod."</h2>
-        <div class="space-y-4 text-lg text-slate-700 leading-relaxed rv rv-d2">
-          <p>Saya Mikhail. Sepanjang 10 tahun dalam bisnes dan IT, saya lihat corak yang sama berulang: pemilik bisnes ada idea yang jelas, tetapi terhenti kerana kos dan kebergantungan pada orang lain.</p>
-          <p>Claude Code mengubah keadaan itu. Hari ini, sesiapa yang mampu menerangkan masalahnya dengan jelas, mampu membina penyelesaiannya sendiri.</p>
-          <p>Dalam kelas ini, saya akan tunjukkan aliran kerja yang saya sendiri guna — dari folder kosong sehingga sistem boleh dibuka oleh orang lain. Langkah demi langkah, bersama-sama.</p>
-          <p class="font-bold text-ink">Jumpa anda pada 31 Oktober.</p>
+      <div class="max-w-sm mx-auto zoom rounded-3xl mb-6 rv">
+        <img src="./assets/trainer.png" alt="Coach Mikhail" class="w-full aspect-[4/5] object-cover" data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
+      </div>
+      <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10 rv">
+        <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="10">0</b><p class="text-xs font-bold text-white/50">TAHUN BISNES & IT</p></div>
+        <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="4">0</b><p class="text-xs font-bold text-white/50">MODUL PRAKTIKAL</p></div>
+      </div>
+
+      <div class="bg-card border border-line rounded-3xl p-7 sm:p-9 space-y-4 text-lg text-white/80 leading-relaxed rv">
+        <p>Saya Mikhail. Dah 10 tahun saya dalam bidang bisnes dan IT. Sepanjang tempoh tu, saya selalu jumpa masalah yang sama: pemilik bisnes ada idea yang bagus, tapi tersekat sebab kos tinggi dan terpaksa bergantung pada orang lain.</p>
+        <p>Claude Code ubah semua tu. Sekarang, kalau anda boleh terangkan masalah bisnes anda dengan jelas, anda boleh bina sistem untuk selesaikan masalah tu sendiri.</p>
+        <p>Dalam kelas ni, saya akan tunjuk cara kerja yang saya sendiri guna — dari folder kosong sampai sistem boleh dibuka orang lain. Step by step, kita buat sama-sama.</p>
+        <p class="font-bold text-white">Jumpa anda 31 Oktober nanti.</p>
+        <div class="pt-2">
+          <p class="font-display font-extrabold text-xl text-white">Coach Mikhail</p>
+          <p class="text-white/50 text-sm">Pengasas, Digital Scape Venture</p>
         </div>
-        <p class="mt-6 font-display font-extrabold text-xl rv">Coach Mikhail</p>
-        <p class="text-slate-500 text-sm">Pengasas, Digital Scape Venture</p>
       </div>
     </div>
   </section>
@@ -381,24 +372,24 @@
   <!-- =========================================================
        7. YURAN
   ========================================================== -->
-  <section id="yuran" class="py-20 lg:py-24 bg-mist border-y border-line">
-    <div class="max-w-5xl mx-auto px-5">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">YURAN KELAS</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Satu bayaran. Satu hari. Satu sistem yang anda bina sendiri.</h2>
+  <section id="yuran" class="py-20 bg-mist border-y border-line">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">YURAN KELAS</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Bayar sekali. Belajar sehari. Balik dengan sistem yang anda bina sendiri.</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-        <div class="bg-white rounded-3xl border border-line p-7 text-center flex flex-col justify-center rv">
-          <p class="text-sm font-bold text-slate-500 mb-1">Harga Asal</p>
-          <p class="font-display text-4xl font-extrabold text-slate-300 line-through">RM199</p>
+      <div class="grid md:grid-cols-3 gap-5 items-stretch">
+        <div class="bg-card rounded-3xl border border-line p-7 text-center flex flex-col justify-center rv">
+          <p class="text-sm font-bold text-white/50 mb-1">Harga Asal</p>
+          <p class="font-display text-4xl font-extrabold text-white/25 line-through">RM199</p>
         </div>
-        <div class="bg-white rounded-3xl border-2 border-ink p-7 text-center flex flex-col justify-center rv rv-d1">
-          <p class="text-sm font-bold text-slate-500 mb-1">Harga Promo</p>
+        <div class="bg-card rounded-3xl border-2 border-white/25 p-7 text-center flex flex-col justify-center rv rv-d1">
+          <p class="text-sm font-bold text-white/50 mb-1">Harga Promo</p>
           <p class="font-display text-5xl font-extrabold">RM149</p>
-          <p class="text-sm text-slate-500 mt-2">Terbuka untuk semua</p>
+          <p class="text-sm text-white/50 mt-2">Untuk semua peserta</p>
         </div>
-        <div class="relative bg-ink text-white rounded-3xl border-2 border-ink p-7 text-center flex flex-col justify-center shadow-[6px_6px_0_#ffd400] rv rv-d2">
+        <div class="relative bg-ink rounded-3xl border-2 border-volt p-7 text-center flex flex-col justify-center shadow-[0_0_40px_-10px_rgba(255,212,0,.5)] rv rv-d2">
           <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-volt text-ink text-xs font-extrabold rounded-full px-3 py-1 whitespace-nowrap">EARLY BIRD</span>
           <p class="text-sm font-bold text-white/60 mb-1">Harga Alumni</p>
           <p class="font-display text-5xl font-extrabold text-volt">RM99</p>
@@ -406,73 +397,73 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-3xl border border-line p-7 md:p-9 mt-8 grid grid-cols-1 md:grid-cols-[1.3fr_.7fr] gap-8 items-center rv">
-        <ul class="space-y-3 text-[17px]">
-          <li class="flex gap-3"><span class="text-electric font-extrabold">✓</span> Kelas LIVE penuh pada Sabtu, 31 Oktober 2026</li>
-          <li class="flex gap-3"><span class="text-electric font-extrabold">✓</span> 4 modul: Claude Code CLI, Deploy Live, Auto Deploy GitHub, Database</li>
-          <li class="flex gap-3"><span class="text-electric font-extrabold">✓</span> Bina sistem sebenar bersama-sama, bukan sekadar menonton</li>
-          <li class="flex gap-3"><span class="text-electric font-extrabold">✓</span> Soal jawab terus dengan Coach Mikhail</li>
+      <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-7 sm:p-9 mt-8 rv">
+        <ul class="space-y-3 text-[17px] mb-8">
+          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Kelas LIVE penuh pada Sabtu, 31 Oktober 2026</li>
+          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> 4 modul: Claude Code CLI, Deploy Live, Auto Deploy GitHub, Database</li>
+          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Anda bina sendiri masa kelas, bukan setakat tengok</li>
+          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Boleh tanya terus Coach Mikhail masa kelas</li>
         </ul>
-        <div class="text-center">
-          <a href="#daftar" class="btn w-full px-6 py-4 text-lg">Daftar Sekarang</a>
-          <p class="text-xs text-slate-500 mt-3">Pilih pakej anda dalam borang pendaftaran.</p>
-        </div>
+        <a href="#daftar" class="btn w-full px-6 py-4 text-lg">Daftar Sekarang</a>
+        <p class="text-xs text-white/50 mt-3 text-center">Pilih pakej dalam borang di bawah.</p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       8. DAFTAR (BCL)
+       8. DAFTAR (BCL) — satu column
   ========================================================== -->
-  <section id="daftar" class="py-20 lg:py-24">
-    <div class="max-w-5xl mx-auto px-5 grid lg:grid-cols-[.8fr_1.2fr] gap-10 items-start">
-      <div class="lg:sticky lg:top-8">
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">PENDAFTARAN</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-6 rv rv-d1">Tempah tempat anda dalam 2 minit.</h2>
-        <ol class="space-y-4 rv rv-d2">
-          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-ink text-volt font-extrabold grid place-items-center text-sm">1</span><p><b>Isi maklumat</b> dan pilih pakej yang berkenaan.</p></li>
-          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-ink text-volt font-extrabold grid place-items-center text-sm">2</span><p><b>Buat bayaran</b> melalui sistem pembayaran yang selamat.</p></li>
-          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-ink text-volt font-extrabold grid place-items-center text-sm">3</span><p><b>Terima pengesahan</b> bersama maklumat kelas.</p></li>
-          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm border-2 border-ink">4</span><p><b>Hadir kelas LIVE</b> pada 31 Oktober dan mula membina.</p></li>
-        </ol>
-        <p class="text-sm text-slate-500 mt-6 rv">Ada pertanyaan sebelum mendaftar? <a href="https://wa.me/60179525174?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20kelas%20Vibe%20Coding%20Fighter." target="_blank" rel="noopener" class="font-bold text-electric underline underline-offset-2">WhatsApp kami</a>.</p>
+  <section id="daftar" class="py-20">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-10">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">PENDAFTARAN</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Daftar dalam masa 2 minit je.</h2>
       </div>
 
-      <div class="bg-white rounded-3xl border-2 border-ink p-4 sm:p-6 shadow-[8px_8px_0_#0b0b12] rv">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 rv">
+        <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">1</span><p class="text-sm"><b>Isi maklumat</b> dan pilih pakej anda</p></div>
+        <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">2</span><p class="text-sm"><b>Buat bayaran</b> secara online dengan selamat</p></div>
+        <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">3</span><p class="text-sm"><b>Terima pengesahan</b> berserta info kelas</p></div>
+        <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> 31 Oktober dan terus bina</p></div>
+      </div>
+
+      <div class="bg-card rounded-3xl border border-white/15 p-4 sm:p-6 shadow-[0_0_60px_-20px_rgba(255,212,0,.45)] rv">
         <div id="bcl-payment-form" data-url="https://digitalscapeventure.bcl.my/embed/form/vbfighter"></div>
       </div>
+
+      <p class="text-sm text-white/50 mt-6 text-center rv">Ada soalan dulu sebelum daftar? <a href="https://wa.me/60179525174?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20kelas%20Vibe%20Coding%20Fighter." target="_blank" rel="noopener" class="font-bold text-volt underline underline-offset-2">WhatsApp kami</a>.</p>
     </div>
   </section>
 
   <!-- =========================================================
        9. SOALAN LAZIM
   ========================================================== -->
-  <section class="py-20 lg:py-24 bg-mist border-t border-line">
+  <section class="py-20 bg-mist border-t border-line">
     <div class="max-w-3xl mx-auto px-5">
       <div class="text-center mb-10">
-        <p class="text-electric font-extrabold text-sm tracking-wide mb-3 rv">SOALAN LAZIM</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Sebelum anda membuat keputusan</h2>
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">SOALAN LAZIM</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Soalan yang selalu ditanya</h2>
       </div>
       <div class="space-y-3">
-        <details class="bg-white border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Saya tiada asas coding langsung. Sesuai untuk saya?<span class="faq-plus text-2xl text-electric">+</span></summary>
-          <p class="text-slate-600 mt-3">Sesuai. Peranan anda ialah menerangkan apa yang mahu dibina dan menyemak hasilnya. Claude Code yang menulis kod. Kelas bermula dari pemasangan pertama.</p>
+        <details class="bg-card border border-line rounded-2xl p-5 rv">
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Saya langsung tak tahu coding. Boleh ikut ke?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <p class="text-white/65 mt-3">Boleh. Tugas anda cuma terangkan apa yang anda nak bina, dan semak hasilnya. Claude Code yang akan tulis kod. Kita mula dari install yang pertama sekali.</p>
         </details>
-        <details class="bg-white border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Apa yang perlu saya sediakan?<span class="faq-plus text-2xl text-electric">+</span></summary>
-          <p class="text-slate-600 mt-3">Laptop (Windows atau Mac) dan sambungan internet yang stabil. Claude Code memerlukan akaun Claude berbayar — panduan persediaan akan dikongsi sebelum kelas.</p>
+        <details class="bg-card border border-line rounded-2xl p-5 rv">
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Apa yang perlu saya sediakan?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <p class="text-white/65 mt-3">Laptop (Windows atau Mac) dan internet yang stabil. Claude Code perlukan akaun Claude berbayar — panduan setup akan dikongsi sebelum kelas.</p>
         </details>
-        <details class="bg-white border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Siapa yang layak untuk harga RM99?<span class="faq-plus text-2xl text-electric">+</span></summary>
-          <p class="text-slate-600 mt-3">Peserta yang telah menyertai kelas LIVE <b>Mastering UI for Vibe Coding</b> dan <b>Super Stack for Vibe Coding</b>. Peserta lain boleh mendaftar pada harga promo RM149.</p>
+        <details class="bg-card border border-line rounded-2xl p-5 rv">
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Siapa yang layak dapat harga RM99?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <p class="text-white/65 mt-3">Peserta yang dah sertai kelas LIVE <b>Mastering UI for Vibe Coding</b> dan <b>Super Stack for Vibe Coding</b>. Peserta lain boleh daftar pada harga promo RM149.</p>
         </details>
-        <details class="bg-white border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Selepas kelas, betul-betul boleh bina sistem sendiri?<span class="faq-plus text-2xl text-electric">+</span></summary>
-          <p class="text-slate-600 mt-3">Matlamat kelas ialah anda faham keseluruhan aliran kerja — membina, menyimpan data, dan menaikkan sistem secara live — supaya boleh diulang untuk projek seterusnya. Hasil tetap bergantung pada latihan anda selepas kelas.</p>
+        <details class="bg-card border border-line rounded-2xl p-5 rv">
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Lepas kelas, betul ke saya boleh bina sistem sendiri?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <p class="text-white/65 mt-3">Matlamat kelas ni ialah supaya anda faham keseluruhan proses — bina sistem, simpan data dan naikkan sistem secara live — dan boleh ulang sendiri untuk projek seterusnya. Hasil akhir tetap bergantung pada latihan anda lepas kelas.</p>
         </details>
-        <details class="bg-white border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Bagaimana jika saya ada soalan lain?<span class="faq-plus text-2xl text-electric">+</span></summary>
-          <p class="text-slate-600 mt-3">Hubungi kami melalui <a href="https://wa.me/60179525174" target="_blank" rel="noopener" class="font-bold text-electric underline">WhatsApp 017-952 5174</a>. Kami sedia membantu.</p>
+        <details class="bg-card border border-line rounded-2xl p-5 rv">
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Kalau saya ada soalan lain?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <p class="text-white/65 mt-3">WhatsApp kami di <a href="https://wa.me/60179525174" target="_blank" rel="noopener" class="font-bold text-volt underline">017-952 5174</a>. Kami sedia bantu.</p>
         </details>
       </div>
     </div>
@@ -481,33 +472,31 @@
   <!-- =========================================================
        10. PENUTUP
   ========================================================== -->
-  <section class="dark bg-night text-white py-20">
+  <section class="py-20">
     <div class="max-w-3xl mx-auto px-5 text-center">
-      <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-5 rv">Sistem itu tidak akan membina dirinya sendiri.</h2>
-      <p class="text-white/70 text-lg mb-8 rv rv-d1">Tapi pada 31 Oktober ini, anda boleh mula membinanya — dengan bimbingan, bersama-sama.</p>
-      <a href="#daftar" class="btn px-9 py-4 text-lg rv rv-d2">Saya Mahu Sertai Kelas Ini</a>
+      <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-5 rv">Idea tu takkan jadi sistem kalau terus disimpan.</h2>
+      <p class="text-white/70 text-lg mb-8 rv rv-d1">31 Oktober ni, mula bina dengan bimbingan. Kita buat sama-sama.</p>
+      <a href="#daftar" class="btn px-10 py-4 text-lg w-full sm:w-auto rv rv-d2">Saya Nak Sertai Kelas Ni</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-night text-white/50 border-t border-white/10 pb-24 sm:pb-0">
-    <div class="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <p class="font-display font-bold text-white text-base">Digital Scape Venture</p>
-        <p>No. Pendaftaran: 202503217847 (003761827-V)</p>
-        <p>WhatsApp: <a href="https://wa.me/60179525174" class="hover:text-volt">017-952 5174</a></p>
-      </div>
-      <p class="text-xs leading-relaxed md:text-right">
-        Penafian: Hasil setiap peserta berbeza dan bergantung pada usaha serta pelaksanaan masing-masing.
-        Claude dan Claude Code ialah tanda dagangan Anthropic. Kelas ini tidak bergabung dengan Anthropic.
-        <br />© <span id="yr"></span> Digital Scape Venture. Hak cipta terpelihara.
+  <footer class="border-t border-white/10 text-white/50 pb-24 sm:pb-0">
+    <div class="max-w-3xl mx-auto px-5 py-10 text-center text-sm space-y-1">
+      <p class="font-display font-bold text-white text-base">Digital Scape Venture</p>
+      <p>No. Pendaftaran: 202503217847 (003761827-V)</p>
+      <p>WhatsApp: <a href="https://wa.me/60179525174" class="hover:text-volt">017-952 5174</a></p>
+      <p class="text-xs leading-relaxed pt-4">
+        Penafian: Hasil setiap peserta berbeza, bergantung pada usaha dan komitmen masing-masing.
+        Claude dan Claude Code ialah tanda dagangan Anthropic. Kelas ini tiada kaitan rasmi dengan Anthropic.
       </p>
+      <p class="text-xs">© <span id="yr"></span> Digital Scape Venture. Hak cipta terpelihara.</p>
     </div>
   </footer>
 
   <!-- Bar CTA mudah alih -->
-  <div id="mbar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t-2 border-ink px-4 py-3 flex items-center justify-between gap-3 translate-y-full transition-transform duration-300">
-    <div class="leading-tight"><p class="text-xs text-slate-500 font-bold">KELAS LIVE · 31 OKT</p><p class="font-display font-extrabold text-lg">Dari RM99</p></div>
+  <div id="mbar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-night/95 backdrop-blur border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3 translate-y-full transition-transform duration-300">
+    <div class="leading-tight"><p class="text-xs text-white/50 font-bold">KELAS LIVE · 31 OKT</p><p class="font-display font-extrabold text-lg">Dari RM99</p></div>
     <a href="#daftar" class="btn px-5 py-3">Daftar</a>
   </div>
 
