@@ -19,27 +19,27 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    invoices and a phone full of WhatsApp messages beside him, tired expression,
    warm desk lamp light."
 
-3. hasil-booking.webp  (16:10)
+3. hasil-booking.webp  (16:10) — SUDAH ADA
    Prompt: "Clean modern web app UI mockup of a booking system on a laptop and
    phone, calendar with time slots, Malay labels like 'Tempah Slot', minimal
    white interface with blue accent, realistic device mockup on a desk."
 
-4. hasil-crm.webp      (16:10)
+4. hasil-crm.webp      (16:10) — SUDAH ADA
    Prompt: "CRM web app UI mockup on a laptop: customer list, customer profile
    with purchase history and follow-up notes, Malay labels like 'Pelanggan'
    and 'Follow-up', clean UI, realistic desk scene."
 
-4b. hasil-stok.webp    (16:10)
+4b. hasil-stok.webp    (16:10) — SUDAH ADA
    Prompt: "Inventory management UI mockup: stock in/out table, remaining
    stock, red low-stock alert badges, Malay labels like 'Stok Masuk' and
    'Stok Rendah', realistic laptop on a warehouse desk."
 
-5. hasil-jualan.webp   (16:10)
+5. hasil-jualan.webp   (16:10) — SUDAH ADA
    Prompt: "Mobile and desktop online store UI mockup, product catalog grid,
    cart, order list with status badges, Malay labels like 'Pesanan',
    clean design, realistic devices on a cafe table."
 
-5b. hasil-projek.webp  (16:10)
+5b. hasil-projek.webp  (16:10) — SUDAH ADA
    Prompt: "Project management kanban board UI mockup: task cards, deadlines,
    team avatars, progress bars, Malay labels like 'Tugasan' and 'Siap',
    realistic laptop in a modern office."
@@ -49,7 +49,7 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    cards, bar charts, Malay labels like 'Jualan Bulan Ini', dark theme
    with yellow and blue accents, on a large monitor."
 
-6. hasil-lain.webp     (16:10) — point 06
+6. hasil-lain.webp     (16:10) — point 06, SUDAH ADA
    Prompt: "Wide collage of three web app screens floating in 3D space:
    membership portal, complaint form, report dashboard, dark background
    with neon blue and yellow glow."
