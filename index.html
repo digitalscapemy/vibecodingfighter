@@ -78,7 +78,8 @@
     @keyframes pop { 0% { transform: scale(1.25); } 100% { transform: scale(1); } }
     .fact { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: .75rem .9rem; }
     .fact-hot { border-color: rgba(255,212,0,.6); background: rgba(255,212,0,.08); }
-    .fact-lbl { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #ffd400; margin-bottom: .2rem; }
+    .fact-lbl { display: flex; align-items: center; gap: .35rem; font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #ffd400; margin-bottom: .2rem; }
+    .mq-ic { display: inline-block; width: 18px; height: 18px; margin: 0 .5rem; vertical-align: -3px; fill: currentColor; }
     .fact-val { font-weight: 800; font-size: 1rem; color: #fff; }
 
     /* Highlight kuning bergegar (tajuk hero) */
@@ -230,10 +231,10 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-          <div class="fact"><p class="fact-lbl">📅 TARIKH</p><p class="fact-val">Sabtu, 7 Nov 2026</p></div>
-          <div class="fact"><p class="fact-lbl">⏰ MASA</p><p class="fact-val">9 pagi – 5 petang</p></div>
-          <div class="fact"><p class="fact-lbl">🎤 TRAINER</p><p class="fact-val">Coach Mikhail</p></div>
-          <div class="fact fact-hot"><p class="fact-lbl">💰 YURAN</p><p class="fact-val"><s class="text-white/40 text-sm font-bold">RM299</s> <span class="text-volt text-xl">RM149</span></p></div>
+          <div class="fact"><p class="fact-lbl"><i data-lucide="calendar-days" class="w-3.5 h-3.5"></i>TARIKH</p><p class="fact-val">Sabtu, 7 Nov 2026</p></div>
+          <div class="fact"><p class="fact-lbl"><i data-lucide="clock" class="w-3.5 h-3.5"></i>MASA</p><p class="fact-val">9 pagi – 5 petang</p></div>
+          <div class="fact"><p class="fact-lbl"><i data-lucide="user-round" class="w-3.5 h-3.5"></i>TRAINER</p><p class="fact-val">Coach Mikhail</p></div>
+          <div class="fact fact-hot"><p class="fact-lbl"><i data-lucide="wallet" class="w-3.5 h-3.5"></i>YURAN</p><p class="fact-val"><s class="text-white/40 text-sm font-bold">RM299</s> <span class="text-volt text-xl">RM149</span></p></div>
         </div>
       </div>
     </div>
@@ -242,8 +243,8 @@
   <!-- Jalur sistem -->
   <div class="bg-volt overflow-hidden py-3">
     <div class="marquee font-display font-extrabold text-ink text-lg whitespace-nowrap">
-      <span class="px-6">SISTEM TEMPAHAN ✦ SISTEM PENGURUSAN ✦ SISTEM JUALAN ✦ SISTEM KEAHLIAN ✦ DASHBOARD LAPORAN ✦ FROM ZERO TO LIVE ✦</span>
-      <span class="px-6">SISTEM TEMPAHAN ✦ SISTEM PENGURUSAN ✦ SISTEM JUALAN ✦ SISTEM KEAHLIAN ✦ DASHBOARD LAPORAN ✦ FROM ZERO TO LIVE ✦</span>
+      <span class="px-6">SISTEM TEMPAHAN <i data-lucide="zap" class="mq-ic"></i> SISTEM PENGURUSAN <i data-lucide="zap" class="mq-ic"></i> SISTEM JUALAN <i data-lucide="zap" class="mq-ic"></i> SISTEM KEAHLIAN <i data-lucide="zap" class="mq-ic"></i> DASHBOARD LAPORAN <i data-lucide="zap" class="mq-ic"></i> FROM ZERO TO LIVE <i data-lucide="zap" class="mq-ic"></i></span>
+      <span class="px-6">SISTEM TEMPAHAN <i data-lucide="zap" class="mq-ic"></i> SISTEM PENGURUSAN <i data-lucide="zap" class="mq-ic"></i> SISTEM JUALAN <i data-lucide="zap" class="mq-ic"></i> SISTEM KEAHLIAN <i data-lucide="zap" class="mq-ic"></i> DASHBOARD LAPORAN <i data-lucide="zap" class="mq-ic"></i> FROM ZERO TO LIVE <i data-lucide="zap" class="mq-ic"></i></span>
     </div>
   </div>
 
@@ -360,7 +361,7 @@
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv">
-          <div class="zoom mb-5"><img src="./assets/modul-3.webp" alt="Auto deploy melalui GitHub" class="w-full aspect-[16/10] object-cover" data-ph="Aliran GitHub → sistem live (auto deploy)" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="zoom mb-5"><img src="./assets/modul-3.webp" alt="Auto deploy melalui GitHub" class="w-full aspect-[16/10] object-cover" data-ph="Aliran GitHub ke sistem live (auto deploy)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 03</span>
             <h3 class="text-xl font-extrabold mb-2">Teknik Auto Deploy ke GitHub</h3>
@@ -459,10 +460,10 @@
 
       <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-7 sm:p-9 mt-8 rv">
         <ul class="space-y-3 text-[17px] mb-8">
-          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Kelas LIVE sehari penuh pada Sabtu, 7 November 2026 (9 pagi – 5 petang)</li>
-          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> 4 modul: Claude Code CLI, Deploy Live, Auto Deploy GitHub, Database</li>
-          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Anda bina sendiri masa kelas, bukan setakat tengok</li>
-          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Boleh tanya terus Coach Mikhail masa kelas</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Kelas LIVE sehari penuh pada Sabtu, 7 November 2026 (9 pagi – 5 petang)</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> 4 modul: Claude Code CLI, Deploy Live, Auto Deploy GitHub, Database</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Anda bina sendiri masa kelas, bukan setakat tengok</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Boleh tanya terus Coach Mikhail masa kelas</li>
         </ul>
         <a href="#daftar" class="btn w-full px-6 py-4 text-lg">Daftar Sekarang</a>
         <p class="text-xs text-white/50 mt-3 text-center">Pilih pakej dalam borang di bawah.</p>
@@ -506,23 +507,23 @@
       </div>
       <div class="space-y-3">
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Saya langsung tak tahu coding. Boleh ikut ke?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Saya langsung tak tahu coding. Boleh ikut ke?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">Boleh. Tugas anda cuma terangkan apa yang anda nak bina, dan semak hasilnya. Claude Code yang akan tulis kod. Kita mula dari install yang pertama sekali.</p>
         </details>
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Apa yang perlu saya sediakan?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Apa yang perlu saya sediakan?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">Laptop (Windows atau Mac) dan internet yang stabil. Claude Code perlukan akaun Claude berbayar — panduan setup akan dikongsi sebelum kelas.</p>
         </details>
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Siapa yang layak dapat harga RM149?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Siapa yang layak dapat harga RM149?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">Peserta yang dah sertai kelas LIVE <b>Mastering UI for Vibe Coding</b> dan <b>Super Stack for Vibe Coding</b>. Peserta lain boleh daftar pada harga promo RM199.</p>
         </details>
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Lepas kelas, betul ke saya boleh bina sistem sendiri?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Lepas kelas, betul ke saya boleh bina sistem sendiri?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">Matlamat kelas ni ialah supaya anda faham keseluruhan proses — bina sistem, simpan data dan naikkan sistem secara live — dan boleh ulang sendiri untuk projek seterusnya. Hasil akhir tetap bergantung pada latihan anda lepas kelas.</p>
         </details>
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Kalau saya ada soalan lain?<span class="faq-plus text-2xl text-volt">+</span></summary>
+          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Kalau saya ada soalan lain?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">WhatsApp kami di <a href="https://wa.me/60179525174" target="_blank" rel="noopener" class="font-bold text-volt underline">017-952 5174</a>. Kami sedia bantu.</p>
         </details>
       </div>
@@ -560,11 +561,15 @@
     <a href="#daftar" class="btn px-5 py-3">Daftar</a>
   </div>
 
+  <!-- Lucide Icons (open source, ISC) -->
+  <script src="https://unpkg.com/lucide@1.61.0/dist/umd/lucide.min.js"></script>
+
   <!-- BCL Payment Embed -->
   <script src="https://bcl.my/js/bc-encrypted-payment-embed.js"></script>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+    lucide.createIcons();
 
     /* Countdown ke kelas: Sabtu 7 November 2026, 9:00 pagi waktu Malaysia */
     const target = new Date('2026-11-07T09:00:00+08:00').getTime();
