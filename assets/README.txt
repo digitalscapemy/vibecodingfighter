@@ -91,7 +91,7 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    Guna foto sebenar Coach Mikhail (potret, latar gelap). Boleh crop dari
    poster hero jika perlu.
 
-12. demo.mp4 + demo-poster.webp (16:9)
+12. demo.mp4 + demo-poster.webp — TIDAK PERLU LAGI (diganti animasi kod dalam page)
    Rakaman skrin 15–40 saat: beri arahan pada Claude Code -> sistem terbina ->
    dibuka di browser. Tiada audio (video main automatik tanpa bunyi).
    demo-poster.webp = satu frame dari video tersebut.
