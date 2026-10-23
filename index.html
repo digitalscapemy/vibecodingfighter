@@ -82,6 +82,12 @@
     .mq-ic { display: inline-block; width: 18px; height: 18px; margin: 0 .5rem; vertical-align: -3px; fill: currentColor; }
     .fact-val { font-weight: 800; font-size: 1rem; color: #fff; }
 
+    /* Form BCL: penuh dalam card, tiada ruang hitam */
+    .bcl-card { background: #fff; isolation: isolate; }
+    .bcl-card #bcl-payment-form,
+    .bcl-card #bcl-payment-form > *,
+    .bcl-card iframe { display: block; width: 100% !important; max-width: 100% !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; }
+
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
       display: inline-block; color: #ffd400;
@@ -517,7 +523,7 @@
         <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> 7 November dan terus bina</p></div>
       </div>
 
-      <div class="bg-card rounded-3xl border border-white/15 p-4 sm:p-6 shadow-[0_0_60px_-20px_rgba(255,212,0,.45)] rv">
+      <div class="bcl-card rounded-3xl overflow-hidden border-2 border-volt/60 shadow-[0_0_60px_-20px_rgba(255,212,0,.45)] rv">
         <div id="bcl-payment-form" data-url="https://digitalscapeventure.bcl.my/embed/form/vbfighter"></div>
       </div>
 
