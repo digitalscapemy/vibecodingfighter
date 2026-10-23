@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Coding Fighter — Kelas LIVE Bina Sistem Guna Claude Code | 31 Oktober 2026</title>
-  <meta name="description" content="Kelas LIVE 31 Oktober 2026 bersama Coach Mikhail. Bina sistem dan web app sendiri guna Claude Code, dari kosong sampai live di internet. Tak perlu pandai coding." />
+  <title>Vibe Coding Fighter — Kelas LIVE Bina Sistem Guna Claude Code | 7 November 2026</title>
+  <meta name="description" content="Kelas LIVE 7 November 2026 (9 pagi – 5 petang) bersama Coach Mikhail. Bina sistem dan web app sendiri guna Claude Code, dari kosong sampai live di internet. Tak perlu pandai coding." />
   <meta property="og:title" content="Vibe Coding Fighter — From Zero To Live" />
-  <meta property="og:description" content="Kelas LIVE bina sistem guna Claude Code. Sabtu, 31 Oktober 2026." />
+  <meta property="og:description" content="Kelas LIVE bina sistem guna Claude Code. Sabtu, 7 November 2026, 9 pagi – 5 petang." />
   <meta property="og:image" content="./assets/og-image.png" />
   <meta property="og:type" content="website" />
 
@@ -98,6 +98,26 @@
     .zoom img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
     .zoom:hover img { transform: scale(1.05); }
 
+    /* Hero full bleed: tiada frame, hujung bawah pudar ke latar */
+    .hero-wrap { position: relative; width: 100%; }
+    .hero-img {
+      display: block; width: 100%; height: auto;
+      -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+      animation: heroIn 1.4s cubic-bezier(.2,.7,.2,1) both;
+    }
+    @keyframes heroIn { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+    /* Skrin besar: hadkan lebar, tepi kiri & kanan juga pudar supaya tiada garis kotak */
+    @media (min-width: 640px) {
+      .hero-wrap { max-width: 720px; margin: 0 auto; }
+      .hero-img {
+        -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+        -webkit-mask-composite: source-in;
+                mask-image: linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+                mask-composite: intersect;
+      }
+    }
+
     /* Poster terapung */
     @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(0deg); } }
     .floaty { animation: floaty 7s ease-in-out infinite; }
@@ -130,12 +150,17 @@
        1. HERO (satu column, tengah)
   ========================================================== -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(700px 420px at 50% 0%, rgba(91,140,255,.28), transparent 70%), radial-gradient(500px 360px at 50% 100%, rgba(255,212,0,.12), transparent 70%);"></div>
+    <!-- Gambar hero: full bleed, tiada frame, fade ke latar -->
+    <div class="hero-wrap">
+      <img src="./assets/hero.png" alt="Vibe Coding Fighter — From Zero To Live bersama Coach Mikhail"
+           class="hero-img" fetchpriority="high"
+           data-ph="Poster hero Vibe Coding Fighter" data-ratio="3/4" onerror="ph(this)" />
+    </div>
 
-    <div class="relative max-w-3xl mx-auto px-5 pt-10 pb-14 text-center">
+    <div class="relative max-w-3xl mx-auto px-5 -mt-6 sm:-mt-10 pb-14 text-center">
       <div class="flex justify-center mb-6 rv">
         <span class="inline-flex items-center gap-2 text-xs font-bold bg-white/10 border border-white/15 rounded-full px-3 py-1.5">
-          <span class="live-dot"></span> KELAS LIVE · SABTU, 31 OKTOBER 2026
+          <span class="live-dot"></span> LIVE · SABTU, 7 NOV 2026 · 9 PAGI – 5 PETANG
         </span>
       </div>
 
@@ -147,14 +172,6 @@
         sebenar — bermula dari folder kosong, sampai sistem anda boleh dibuka
         oleh pelanggan di internet.
       </p>
-
-      <!-- Poster -->
-      <div class="relative max-w-[420px] mx-auto mb-10 rv rv-d2">
-        <div class="absolute -inset-6 bg-electric/25 blur-3xl rounded-full"></div>
-        <img src="./assets/hero.png" alt="Vibe Coding Fighter — From Zero To Live bersama Coach Mikhail"
-             class="relative floaty rounded-2xl w-full shadow-2xl ring-1 ring-white/10"
-             data-ph="Poster hero Vibe Coding Fighter" data-ratio="3/4" onerror="ph(this)" />
-      </div>
 
       <a href="#daftar" class="btn px-10 py-4 text-lg w-full sm:w-auto rv">Daftar Kelas — dari RM99</a>
 
@@ -171,8 +188,8 @@
 
       <!-- Fakta ringkas (grid) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 text-sm rv">
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TARIKH</p><p class="font-bold">Sabtu, 31 Okt</p></div>
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">FORMAT</p><p class="font-bold">LIVE + praktikal</p></div>
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TARIKH</p><p class="font-bold">Sabtu, 7 Nov</p></div>
+        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">MASA</p><p class="font-bold">9 pagi – 5 petang</p></div>
         <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TRAINER</p><p class="font-bold">Coach Mikhail</p></div>
         <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">YURAN</p><p class="font-bold"><s class="text-white/40">RM199</s> <span class="text-volt">RM99</span></p></div>
       </div>
@@ -360,7 +377,7 @@
         <p>Saya Mikhail. Dah 10 tahun saya dalam bidang bisnes dan IT. Sepanjang tempoh tu, saya selalu jumpa masalah yang sama: pemilik bisnes ada idea yang bagus, tapi tersekat sebab kos tinggi dan terpaksa bergantung pada orang lain.</p>
         <p>Claude Code ubah semua tu. Sekarang, kalau anda boleh terangkan masalah bisnes anda dengan jelas, anda boleh bina sistem untuk selesaikan masalah tu sendiri.</p>
         <p>Dalam kelas ni, saya akan tunjuk cara kerja yang saya sendiri guna — dari folder kosong sampai sistem boleh dibuka orang lain. Step by step, kita buat sama-sama.</p>
-        <p class="font-bold text-white">Jumpa anda 31 Oktober nanti.</p>
+        <p class="font-bold text-white">Jumpa anda 7 November nanti.</p>
         <div class="pt-2">
           <p class="font-display font-extrabold text-xl text-white">Coach Mikhail</p>
           <p class="text-white/50 text-sm">Pengasas, Digital Scape Venture</p>
@@ -399,7 +416,7 @@
 
       <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-7 sm:p-9 mt-8 rv">
         <ul class="space-y-3 text-[17px] mb-8">
-          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Kelas LIVE penuh pada Sabtu, 31 Oktober 2026</li>
+          <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Kelas LIVE sehari penuh pada Sabtu, 7 November 2026 (9 pagi – 5 petang)</li>
           <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> 4 modul: Claude Code CLI, Deploy Live, Auto Deploy GitHub, Database</li>
           <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Anda bina sendiri masa kelas, bukan setakat tengok</li>
           <li class="flex gap-3"><span class="text-volt font-extrabold">✓</span> Boleh tanya terus Coach Mikhail masa kelas</li>
@@ -424,7 +441,7 @@
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">1</span><p class="text-sm"><b>Isi maklumat</b> dan pilih pakej anda</p></div>
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">2</span><p class="text-sm"><b>Buat bayaran</b> secara online dengan selamat</p></div>
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">3</span><p class="text-sm"><b>Terima pengesahan</b> berserta info kelas</p></div>
-        <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> 31 Oktober dan terus bina</p></div>
+        <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> 7 November dan terus bina</p></div>
       </div>
 
       <div class="bg-card rounded-3xl border border-white/15 p-4 sm:p-6 shadow-[0_0_60px_-20px_rgba(255,212,0,.45)] rv">
@@ -475,7 +492,7 @@
   <section class="py-20">
     <div class="max-w-3xl mx-auto px-5 text-center">
       <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-5 rv">Idea tu takkan jadi sistem kalau terus disimpan.</h2>
-      <p class="text-white/70 text-lg mb-8 rv rv-d1">31 Oktober ni, mula bina dengan bimbingan. Kita buat sama-sama.</p>
+      <p class="text-white/70 text-lg mb-8 rv rv-d1">7 November ni, mula bina dengan bimbingan. Kita buat sama-sama.</p>
       <a href="#daftar" class="btn px-10 py-4 text-lg w-full sm:w-auto rv rv-d2">Saya Nak Sertai Kelas Ni</a>
     </div>
   </section>
@@ -496,7 +513,7 @@
 
   <!-- Bar CTA mudah alih -->
   <div id="mbar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-night/95 backdrop-blur border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3 translate-y-full transition-transform duration-300">
-    <div class="leading-tight"><p class="text-xs text-white/50 font-bold">KELAS LIVE · 31 OKT</p><p class="font-display font-extrabold text-lg">Dari RM99</p></div>
+    <div class="leading-tight"><p class="text-xs text-white/50 font-bold">KELAS LIVE · 7 NOV</p><p class="font-display font-extrabold text-lg">Dari RM99</p></div>
     <a href="#daftar" class="btn px-5 py-3">Daftar</a>
   </div>
 
@@ -506,8 +523,8 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    /* Countdown ke kelas: Sabtu 31 Oktober 2026, 00:00 waktu Malaysia */
-    const target = new Date('2026-10-31T00:00:00+08:00').getTime();
+    /* Countdown ke kelas: Sabtu 7 November 2026, 9:00 pagi waktu Malaysia */
+    const target = new Date('2026-11-07T09:00:00+08:00').getTime();
     const pad = n => String(n).padStart(2, '0');
     function tick() {
       let t = Math.max(0, target - Date.now());
