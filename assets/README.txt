@@ -64,20 +64,20 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    CLI, dark theme, glowing code text, keyboard in foreground, shallow depth
    of field."
 
-9. modul-3.webp  (16:9) — Persediaan VPS dan Pemasangan Sistem
+9. modul-3.mp4 — SUDAH ADA (video loop) — Persediaan VPS dan Pemasangan Sistem
    Prompt: "Laptop terminal connected via SSH to a cloud server, glowing server
    rack in the background, lines of install commands, dark blue tech mood."
 
-10. modul-4.webp (16:9) — Automasi Deployment dengan GitHub
+10. modul-4.mp4 — SUDAH ADA (video loop) — Automasi Deployment dengan GitHub
    Prompt: "Abstract illustration of code flowing from a laptop through a GitHub
    pipeline to a cloud server, git branch icons, green check marks, dark
    background, electric blue and yellow."
 
-10b. modul-5.webp (16:9) — Pengurusan Projek dan Database dalam VPS
+10b. modul-5.mp4 — SUDAH ADA (video loop) — Pengurusan Projek dan Database dalam VPS
    Prompt: "Clean database table UI next to a server file manager on a monitor,
    organised folders and customer records, dark theme, yellow accents."
 
-10c. modul-6.webp (16:9) — Persediaan Domain dan Cloudflare
+10c. modul-6.mp4 — SUDAH ADA (video loop) — Persediaan Domain dan Cloudflare
    Prompt: "DNS settings dashboard UI mockup with domain records, globe network
    lines connecting a domain name to a server, orange and blue glow, dark
    background."
