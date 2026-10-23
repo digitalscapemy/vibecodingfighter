@@ -44,12 +44,12 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    team avatars, progress bars, Malay labels like 'Tugasan' and 'Siap',
    realistic laptop in a modern office."
 
-5c. hasil-dashboard.webp (16:10)
+5c. hasil-dashboard.webp (TIDAK DIGUNA LAGI)
    Prompt: "Business analytics dashboard UI mockup: sales line chart, KPI
    cards, bar charts, Malay labels like 'Jualan Bulan Ini', dark theme
    with yellow and blue accents, on a large monitor."
 
-6. hasil-lain.webp     (21:9, landskap lebar)
+6. hasil-lain.webp     (16:10) — point 06
    Prompt: "Wide collage of three web app screens floating in 3D space:
    membership portal, complaint form, report dashboard, dark background
    with neon blue and yellow glow."
