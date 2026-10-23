@@ -54,23 +54,38 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    membership portal, complaint form, report dashboard, dark background
    with neon blue and yellow glow."
 
-7. modul-1.webp        (16:10)
+7. modul-1.webp  (16:10) — Persediaan Persekitaran Vibe Coding
+   Prompt: "A clean developer desk setup, laptop showing VS Code editor and a
+   terminal installing tools, checklist overlay with green ticks, dark room
+   with neon yellow and blue accent light."
+
+8. modul-2.webp  (16:10) — Asas Vibe Coding dengan Claude Code
    Prompt: "Close-up of a laptop terminal window running an AI coding assistant
    CLI, dark theme, glowing code text, keyboard in foreground, shallow depth
    of field."
 
-8. modul-2.webp        (16:10)
-   Prompt: "The same web app shown live on a laptop, tablet and smartphone side
-   by side, browser address bar visible, sense of 'now online', soft neon glow."
+9. modul-3.webp  (16:10) — Persediaan VPS dan Pemasangan Sistem
+   Prompt: "Laptop terminal connected via SSH to a cloud server, glowing server
+   rack in the background, lines of install commands, dark blue tech mood."
 
-9. modul-3.webp        (16:10)
-   Prompt: "Abstract illustration of code flowing from a laptop to a cloud
-   server through a glowing pipeline, git branch icons, dark background,
-   electric blue and yellow."
+10. modul-4.webp (16:10) — Automasi Deployment dengan GitHub
+   Prompt: "Abstract illustration of code flowing from a laptop through a GitHub
+   pipeline to a cloud server, git branch icons, green check marks, dark
+   background, electric blue and yellow."
 
-10. modul-4.webp       (16:10)
-   Prompt: "Clean database table UI on a monitor showing customer records rows
-   and columns, organised and tidy, blue accent, modern office."
+10b. modul-5.webp (16:10) — Pengurusan Projek dan Database dalam VPS
+   Prompt: "Clean database table UI next to a server file manager on a monitor,
+   organised folders and customer records, dark theme, yellow accents."
+
+10c. modul-6.webp (16:10) — Persediaan Domain dan Cloudflare
+   Prompt: "DNS settings dashboard UI mockup with domain records, globe network
+   lines connecting a domain name to a server, orange and blue glow, dark
+   background."
+
+10d. modul-7.webp (21:9, landskap lebar) — Pelancaran Projek ke Sistem Sebenar
+   Prompt: "Wide shot: the same web app live on a laptop and smartphone, browser
+   address bar showing a custom domain, celebratory 'now online' mood, neon
+   yellow and blue rim light, dark background."
 
 11. trainer.png        (4:5)
    Guna foto sebenar Coach Mikhail (potret, latar gelap). Boleh crop dari
