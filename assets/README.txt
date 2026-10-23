@@ -82,7 +82,7 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    lines connecting a domain name to a server, orange and blue glow, dark
    background."
 
-10d. modul-7.webp (21:9, landskap lebar) — Pelancaran Projek ke Sistem Sebenar
+10d. modul-7.mp4 — SUDAH ADA (video loop 16:9)
    Prompt: "Wide shot: the same web app live on a laptop and smartphone, browser
    address bar showing a custom domain, celebratory 'now online' mood, neon
    yellow and blue rim light, dark background."
