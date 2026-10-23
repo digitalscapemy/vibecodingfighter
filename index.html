@@ -59,6 +59,28 @@
     .mark { background-image: linear-gradient(transparent 62%, rgba(91,140,255,.35) 62%); padding: 0 .1em; }
     .mark-dark { background-image: linear-gradient(transparent 62%, rgba(255,212,0,.35) 62%); padding: 0 .1em; }
 
+    /* Panel countdown */
+    .cd-panel {
+      position: relative; background: linear-gradient(180deg, rgba(255,212,0,.08), rgba(18,19,29,.9) 45%);
+      border: 2px solid rgba(255,212,0,.55);
+      animation: panelGlow 2.4s ease-in-out infinite;
+    }
+    @keyframes panelGlow {
+      0%,100% { box-shadow: 0 0 0 0 rgba(255,212,0,0), 0 20px 60px -30px rgba(255,212,0,.5); }
+      50% { box-shadow: 0 0 34px -4px rgba(255,212,0,.45), 0 20px 60px -30px rgba(255,212,0,.5); }
+    }
+    .cd-box { background: #07070c; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: .85rem 0 .7rem; text-align: center; }
+    .cd-box-hot { border-color: #ffd400; background: rgba(255,212,0,.1); }
+    .cd-num { display: block; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 8vw, 3rem); line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+    .cd-box-hot .cd-num { color: #ffd400; }
+    .cd-lbl { display: block; margin-top: .4rem; font-size: 11px; font-weight: 800; letter-spacing: .12em; color: rgba(255,255,255,.6); }
+    .cd-tick.pop { animation: pop .35s ease-out; }
+    @keyframes pop { 0% { transform: scale(1.25); } 100% { transform: scale(1); } }
+    .fact { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: .75rem .9rem; }
+    .fact-hot { border-color: rgba(255,212,0,.6); background: rgba(255,212,0,.08); }
+    .fact-lbl { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #ffd400; margin-bottom: .2rem; }
+    .fact-val { font-weight: 800; font-size: 1rem; color: #fff; }
+
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
       display: inline-block; color: #ffd400;
@@ -193,23 +215,26 @@
 
       <a href="#daftar" class="btn px-10 py-4 text-lg w-full sm:w-auto rv">Daftar Kelas — dari RM149</a>
 
-      <!-- Countdown -->
-      <div class="mt-8 rv">
-        <p class="text-xs font-bold tracking-widest text-white/50 mb-3">KELAS AKAN BERMULA DALAM</p>
-        <div class="flex justify-center gap-2">
-          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="d" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">HARI</span></div>
-          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="h" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">JAM</span></div>
-          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="m" class="block font-display text-2xl">00</b><span class="text-[10px] text-white/50 font-bold">MINIT</span></div>
-          <div class="bg-white/5 border border-white/10 rounded-xl w-[70px] py-2.5"><b data-cd="s" class="block font-display text-2xl text-volt">00</b><span class="text-[10px] text-white/50 font-bold">SAAT</span></div>
+      <!-- Panel countdown + fakta -->
+      <div class="cd-panel mt-10 rounded-3xl p-5 sm:p-7 text-left rv">
+        <div class="flex items-center justify-center gap-2 mb-5">
+          <span class="live-dot"></span>
+          <p class="font-display font-extrabold text-base sm:text-lg tracking-wide text-volt">KELAS AKAN BERMULA DALAM</p>
         </div>
-      </div>
 
-      <!-- Fakta ringkas (grid) -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 text-sm rv">
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TARIKH</p><p class="font-bold">Sabtu, 7 Nov</p></div>
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">MASA</p><p class="font-bold">9 pagi – 5 petang</p></div>
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">TRAINER</p><p class="font-bold">Coach Mikhail</p></div>
-        <div class="bg-card border border-line rounded-xl p-3"><p class="text-white/45 text-[11px] font-bold">YURAN</p><p class="font-bold"><s class="text-white/40">RM299</s> <span class="text-volt">RM149</span></p></div>
+        <div class="grid grid-cols-4 gap-2 sm:gap-3 mb-6">
+          <div class="cd-box"><b data-cd="d" class="cd-num">00</b><span class="cd-lbl">HARI</span></div>
+          <div class="cd-box"><b data-cd="h" class="cd-num">00</b><span class="cd-lbl">JAM</span></div>
+          <div class="cd-box"><b data-cd="m" class="cd-num">00</b><span class="cd-lbl">MINIT</span></div>
+          <div class="cd-box cd-box-hot"><b data-cd="s" class="cd-num cd-tick">00</b><span class="cd-lbl">SAAT</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+          <div class="fact"><p class="fact-lbl">📅 TARIKH</p><p class="fact-val">Sabtu, 7 Nov 2026</p></div>
+          <div class="fact"><p class="fact-lbl">⏰ MASA</p><p class="fact-val">9 pagi – 5 petang</p></div>
+          <div class="fact"><p class="fact-lbl">🎤 TRAINER</p><p class="fact-val">Coach Mikhail</p></div>
+          <div class="fact fact-hot"><p class="fact-lbl">💰 YURAN</p><p class="fact-val"><s class="text-white/40 text-sm font-bold">RM299</s> <span class="text-volt text-xl">RM149</span></p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -548,6 +573,7 @@
       let t = Math.max(0, target - Date.now());
       const v = { d: Math.floor(t / 864e5), h: Math.floor(t / 36e5) % 24, m: Math.floor(t / 6e4) % 60, s: Math.floor(t / 1e3) % 60 };
       document.querySelectorAll('[data-cd]').forEach(el => el.textContent = pad(v[el.dataset.cd]));
+      document.querySelectorAll('.cd-tick').forEach(el => { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); });
     }
     tick(); setInterval(tick, 1000);
 
