@@ -278,6 +278,15 @@
     .browser-live { opacity: 0; transition: opacity .4s ease; }
     .browser-live.on { opacity: 1; }
 
+    /* Kad kelayakan trainer (2x2) */
+    .cred-wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; padding: .6rem; background: #0b0b12; border: 1px solid rgba(255,255,255,.06); border-radius: 20px; }
+    .cred { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: .35rem; padding: 1.1rem .7rem; background: #15161f; border-radius: 14px; transition: transform .25s ease, background .25s ease; }
+    .cred:hover { transform: translateY(-3px); background: #1a1b26; }
+    .cred-ic { width: 20px; height: 20px; color: #ffd400; }
+    .cred-t { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; line-height: 1.25; color: #ffd400; }
+    .cred-s { font-size: 11px; font-weight: 600; letter-spacing: .06em; line-height: 1.35; color: rgba(255,255,255,.55); }
+    @media (min-width: 640px) { .cred-wrap { gap: .8rem; padding: .8rem; } .cred { padding: 1.3rem 1rem; } .cred-t { font-size: 1.15rem; } .cred-s { font-size: 12px; } }
+
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
       display: inline-block; color: #ffd400;
@@ -841,9 +850,27 @@
         <img src="./assets/trainer.webp" alt="Coach Mikhail" class="coach-img" loading="lazy"
              data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
       </div>
-      <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10 -mt-6 relative z-10 rv">
-        <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="10">0</b><p class="text-xs font-bold text-white/50">TAHUN BISNES & IT</p></div>
-        <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="7">0</b><p class="text-xs font-bold text-white/50">MODUL PRAKTIKAL</p></div>
+      <div class="cred-wrap max-w-2xl mx-auto mb-10 -mt-6 relative z-10 rv">
+        <div class="cred">
+          <i data-lucide="briefcase-business" class="cred-ic"></i>
+          <b class="cred-t"><span data-count="10">0</span> Tahun</b>
+          <p class="cred-s">BISNES &amp; IT</p>
+        </div>
+        <div class="cred">
+          <i data-lucide="code-xml" class="cred-ic"></i>
+          <b class="cred-t">Digital Product Builder</b>
+          <p class="cred-s">WEB APPS, SAAS &amp; SOFTWARE</p>
+        </div>
+        <div class="cred">
+          <i data-lucide="rocket" class="cred-ic"></i>
+          <b class="cred-t">Digital Entrepreneur</b>
+          <p class="cred-s">PENGALAMAN MEMBINA BISNES DIGITAL</p>
+        </div>
+        <div class="cred">
+          <i data-lucide="workflow" class="cred-ic"></i>
+          <b class="cred-t">Workflow Automation</b>
+          <p class="cred-s">AUTOMASI PROSES KERJA</p>
+        </div>
       </div>
 
       <div class="bg-card border border-line rounded-3xl p-7 sm:p-9 space-y-4 text-lg text-white/80 leading-relaxed rv">
