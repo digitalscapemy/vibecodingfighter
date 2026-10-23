@@ -54,12 +54,12 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    membership portal, complaint form, report dashboard, dark background
    with neon blue and yellow glow."
 
-7. modul-1.webp  (16:10) — Persediaan Persekitaran Vibe Coding
+7. modul-1.mp4 + modul-1-poster.webp — SUDAH ADA (video loop)
    Prompt: "A clean developer desk setup, laptop showing VS Code editor and a
    terminal installing tools, checklist overlay with green ticks, dark room
    with neon yellow and blue accent light."
 
-8. modul-2.webp  (16:10) — Asas Vibe Coding dengan Claude Code
+8. modul-2.mp4 + modul-2-poster.webp — SUDAH ADA (video loop)
    Prompt: "Close-up of a laptop terminal window running an AI coding assistant
    CLI, dark theme, glowing code text, keyboard in foreground, shallow depth
    of field."
