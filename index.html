@@ -99,6 +99,28 @@
       margin: 0 !important; border: 0 !important; border-radius: 22px !important;
     }
 
+    /* Proses pembangunan: aliran langkah */
+    .pipeline { position: relative; }
+    .pipe-track { position: absolute; left: 10%; right: 10%; top: 26px; height: 3px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; }
+    .pipe-fill { height: 100%; width: 0; background: linear-gradient(90deg, #ffd400, #ffe866); box-shadow: 0 0 12px rgba(255,212,0,.8); transition: width .6s ease; }
+    .step { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+    .step-dot { width: 54px; height: 54px; border-radius: 999px; display: grid; place-items: center; position: relative; z-index: 1;
+      background: #12131d; border: 2px solid rgba(255,255,255,.15); color: rgba(255,255,255,.45); transition: all .4s ease; }
+    .step-lbl { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 10px; letter-spacing: .03em; line-height: 1.25; color: rgba(255,255,255,.45); transition: color .4s ease; max-width: 10ch; }
+    .step.done .step-dot { border-color: #ffd400; color: #ffd400; }
+    .step.done .step-lbl { color: #fff; }
+    .step.on .step-dot { background: #ffd400; border-color: #ffd400; color: #0b0b12; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(255,212,0,.15), 0 0 28px rgba(255,212,0,.6); }
+    .step.on .step-lbl { color: #ffd400; }
+    @media (min-width: 640px) { .step-dot { width: 64px; height: 64px; } .pipe-track { top: 31px; } .step-lbl { font-size: 13px; max-width: none; } }
+
+    /* Bingkai browser untuk video */
+    .browser { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #0b0b12; box-shadow: 0 30px 80px -30px rgba(255,212,0,.35); }
+    .browser-bar { display: flex; align-items: center; gap: .75rem; padding: .65rem .9rem; background: #161724; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .b-dot { width: 11px; height: 11px; border-radius: 99px; display: inline-block; }
+    .browser-url { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; font-size: 12px; color: rgba(255,255,255,.55); background: rgba(255,255,255,.06); border-radius: 8px; padding: .3rem .6rem; }
+    .browser-live { display: inline-flex; align-items: center; gap: .4rem; font-size: 11px; font-weight: 800; color: #ff6b6b; }
+    .browser .ph { border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
+
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
       display: inline-block; color: #ffd400;
@@ -135,7 +157,7 @@
 
     /* Placeholder gambar */
     .ph {
-      width: 100%; display: grid; place-items: center; text-align: center; border-radius: 16px;
+      width: 100%; display: grid !important; place-items: center; text-align: center; border-radius: 16px;
       background:
         repeating-linear-gradient(135deg, rgba(255,212,0,.06) 0 12px, transparent 12px 24px),
         linear-gradient(160deg, #141523, #0c0d15);
@@ -454,16 +476,50 @@
   </section>
 
   <!-- =========================================================
-       5. VIDEO DEMO
+       5. PROSES PEMBANGUNAN
   ========================================================== -->
-  <section class="py-20 bg-mist border-y border-line">
-    <div class="max-w-3xl mx-auto px-5 text-center">
-      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">TENGOK SENDIRI</p>
-      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 rv rv-d1">Dari arahan pertama sampai sistem live.</h2>
-      <p class="text-white/65 text-lg mb-10 rv rv-d2">Ini contoh proses yang anda akan buat sendiri dalam kelas nanti.</p>
-      <div class="rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl rv">
-        <video class="w-full aspect-video object-cover bg-black" autoplay muted loop playsinline preload="metadata"
-               poster="./assets/demo-poster.webp" data-ph="Video demo bina sistem (15–40 saat)" data-ratio="16/9" data-file="assets/demo.mp4">
+  <section class="py-20 bg-mist border-y border-line overflow-hidden">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">PROSES PEMBANGUNAN</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 rv rv-d1">Dari prompt pertama hingga sistem sedia digunakan.</h2>
+      <p class="text-white/65 text-lg max-w-2xl mx-auto mb-12 rv rv-d2">Lihat bagaimana idea anda berkembang melalui setiap langkah, daripada merancang dan membina sistem menggunakan AI sehinggalah dilancarkan secara online.</p>
+
+      <!-- Aliran langkah -->
+      <div class="pipeline rv" id="pipeline">
+        <div class="pipe-track"><div class="pipe-fill" id="pipeFill"></div></div>
+        <div class="grid grid-cols-5 relative">
+          <div class="step" data-step="0">
+            <span class="step-dot"><i data-lucide="message-square-text" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
+            <span class="step-lbl">PROMPT</span>
+          </div>
+          <div class="step" data-step="1">
+            <span class="step-dot"><i data-lucide="list-checks" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
+            <span class="step-lbl">PLAN</span>
+          </div>
+          <div class="step" data-step="2">
+            <span class="step-dot"><i data-lucide="hammer" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
+            <span class="step-lbl">BUILD</span>
+          </div>
+          <div class="step" data-step="3">
+            <span class="step-dot"><i data-lucide="gauge" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
+            <span class="step-lbl">OPTIMIZE</span>
+          </div>
+          <div class="step" data-step="4">
+            <span class="step-dot"><i data-lucide="rocket" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
+            <span class="step-lbl">LIVE PRODUCTION</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video dalam bingkai browser -->
+      <div class="browser mt-12 rv">
+        <div class="browser-bar">
+          <span class="flex gap-1.5"><i class="b-dot bg-[#ff5f57]"></i><i class="b-dot bg-[#febc2e]"></i><i class="b-dot bg-[#28c840]"></i></span>
+          <span class="browser-url"><i data-lucide="lock" class="w-3 h-3"></i> sistem-anda.com</span>
+          <span class="browser-live"><span class="live-dot"></span> LIVE</span>
+        </div>
+        <video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata"
+               poster="./assets/demo-poster.webp" data-ph="Video demo proses Vibe Coding dari prompt hingga sistem live" data-ratio="16/9" data-file="assets/demo.mp4">
           <source src="./assets/demo.mp4" type="video/mp4" onerror="ph(this.parentElement)" />
         </video>
       </div>
@@ -667,6 +723,20 @@
       co.unobserve(el);
     }), { threshold: .6 });
     document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+
+    /* Aliran langkah: nyala satu per satu, berulang */
+    (() => {
+      const steps = [...document.querySelectorAll('#pipeline .step')];
+      const fill = document.getElementById('pipeFill');
+      if (!steps.length) return;
+      let i = 0;
+      const show = () => {
+        steps.forEach((s, k) => { s.classList.toggle('on', k === i); s.classList.toggle('done', k < i); });
+        fill.style.width = (i / (steps.length - 1) * 100) + '%';
+        i = (i + 1) % steps.length;
+      };
+      show(); setInterval(show, 1300);
+    })();
 
     /* Bar CTA mudah alih: muncul selepas hero, sorok di seksyen daftar */
     const mbar = document.getElementById('mbar');
