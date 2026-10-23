@@ -121,6 +121,23 @@
     .browser-live { display: inline-flex; align-items: center; gap: .4rem; font-size: 11px; font-weight: 800; color: #ff6b6b; }
     .browser .ph { border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
 
+    /* Foto coach: glow berwarna beranimasi + fade bawah */
+    .coach { position: relative; max-width: 420px; margin: 0 auto; isolation: isolate; }
+    .coach-img {
+      position: relative; z-index: 1; display: block; width: 100%; height: auto;
+      -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+              mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+      filter: drop-shadow(0 0 1.5px rgba(255,255,255,.45)) drop-shadow(0 0 14px rgba(140,170,255,.35));
+    }
+    .coach-glow { position: absolute; inset: 4% -10% 18%; z-index: 0; pointer-events: none; filter: blur(55px); }
+    .coach-glow span { position: absolute; border-radius: 999px; opacity: .75; }
+    .coach-glow .g1 { width: 62%; height: 58%; left: 4%;  top: 12%; background: #ffd400; animation: glowA 7s ease-in-out infinite; }
+    .coach-glow .g2 { width: 60%; height: 60%; right: 2%; top: 4%;  background: #5b8cff; animation: glowB 8s ease-in-out infinite; }
+    .coach-glow .g3 { width: 55%; height: 50%; left: 22%; bottom: 0; background: #c026d3; animation: glowC 9s ease-in-out infinite; }
+    @keyframes glowA { 0%,100% { transform: translate(0,0) scale(1); opacity: .55; } 50% { transform: translate(14%,8%) scale(1.15); opacity: .8; } }
+    @keyframes glowB { 0%,100% { transform: translate(0,0) scale(1.05); opacity: .7; } 50% { transform: translate(-16%,10%) scale(.9); opacity: .5; } }
+    @keyframes glowC { 0%,100% { transform: translate(0,0) scale(.95); opacity: .45; } 50% { transform: translate(8%,-14%) scale(1.15); opacity: .7; } }
+
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
       display: inline-block; color: #ffd400;
@@ -533,13 +550,18 @@
     <div class="max-w-3xl mx-auto px-5">
       <div class="text-center mb-8">
         <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">KENALI TRAINER ANDA</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">"Saya takkan suruh anda hafal kod."</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">“Tak perlu jadi programmer untuk mula buat sistem. Vibe Coding dah ada, prompt je.”</h2>
       </div>
 
-      <div class="max-w-sm mx-auto zoom rounded-3xl mb-6 rv">
-        <img src="./assets/trainer.png" alt="Coach Mikhail" class="w-full aspect-[4/5] object-cover" data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
+      <!-- Foto coach: tiada frame, glow beranimasi di belakang, bawah pudar -->
+      <div class="coach rv">
+        <div class="coach-glow" aria-hidden="true">
+          <span class="g1"></span><span class="g2"></span><span class="g3"></span>
+        </div>
+        <img src="./assets/trainer.webp" alt="Coach Mikhail" class="coach-img" loading="lazy"
+             data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
       </div>
-      <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10 rv">
+      <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10 -mt-6 relative z-10 rv">
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="10">0</b><p class="text-xs font-bold text-white/50">TAHUN BISNES & IT</p></div>
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><b class="font-display text-3xl text-volt" data-count="7">0</b><p class="text-xs font-bold text-white/50">MODUL PRAKTIKAL</p></div>
       </div>
@@ -579,7 +601,7 @@
         </div>
         <div class="relative bg-ink rounded-3xl border-2 border-volt p-7 text-center flex flex-col justify-center shadow-[0_0_40px_-10px_rgba(255,212,0,.5)] rv rv-d2">
           <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-volt text-ink text-xs font-extrabold rounded-full px-3 py-1 whitespace-nowrap">EARLY BIRD</span>
-          <p class="text-sm font-bold text-white/60 mb-1">Harga Alumni</p>
+          <p class="text-sm font-bold text-white/60 mb-1">Harga Special</p>
           <p class="font-display text-5xl font-extrabold text-volt">RM149</p>
           <p class="text-sm text-white/70 mt-2">Khas peserta kelas LIVE <b>Mastering UI for Vibe Coding</b> &amp; <b>Super Stack for Vibe Coding</b></p>
         </div>
@@ -587,10 +609,13 @@
 
       <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-7 sm:p-9 mt-8 rv">
         <ul class="space-y-3 text-[17px] mb-8">
-          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Kelas LIVE sehari penuh pada Sabtu, 7 November 2026 (9 pagi – 5 petang)</li>
-          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> 7 modul: dari persediaan PC, Claude Code, VPS, automasi GitHub, database hingga domain &amp; pelancaran sistem</li>
-          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Anda bina sendiri masa kelas, bukan setakat tengok</li>
-          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Boleh tanya terus Coach Mikhail masa kelas</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Kelas LIVE sehari penuh — Sabtu, 7 November 2026 (9 pagi – 5 petang)</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> 7 modul praktikal, dari persediaan PC sehingga sistem dilancarkan secara online</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Bina sistem menggunakan Claude Code melalui arahan dalam bahasa biasa</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Setup VPS, database dan automasi deployment dengan GitHub</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Sambungkan domain sendiri melalui Cloudflare</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Rakaman kelas untuk ulang tonton</li>
+          <li class="flex gap-3"><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0 mt-0.5"></i> Akses group support VIP</li>
         </ul>
         <a href="#daftar" class="btn w-full px-6 py-4 text-lg">Daftar Sekarang</a>
         <p class="text-xs text-white/50 mt-3 text-center">Pilih pakej dalam borang di bawah.</p>
