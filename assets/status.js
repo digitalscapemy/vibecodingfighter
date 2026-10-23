@@ -7,20 +7,27 @@
   const WA = '60179525174';
   const KEY = 'vcf-last-payment';
   const q = new URLSearchParams(location.search);
-  const pick = (...k) => k.map(x => q.get(x)).find(v => v && !/^\{.*\}$/.test(v)) || '';
+  // Nilai yang BCL tak ganti (cth. "{order_number}") diabaikan
+  const ok = v => v && !/[{}]/.test(v) && !/^(null|undefined)$/i.test(v);
+  const pick = (...k) => k.map(x => q.get(x)).find(ok) || '';
 
   let d = {
-    ref: pick('order_number', 'order', 'reference_id', 'ref'),
+    ref: pick('order_number', 'order_no', 'orderNumber', 'order_id', 'order', 'reference_id', 'reference',
+              'ref', 'transaction_id', 'txn_id', 'invoice', 'invoice_no', 'bill_code', 'billcode', 'id'),
     amount: pick('amount', 'total'),
     name: pick('customer_name', 'name'),
     method: pick('payment_method', 'method'),
     status: pick('status', 'reason'),
   };
   try {
-    if (Object.values(d).some(Boolean)) sessionStorage.setItem(KEY, JSON.stringify(d));
-    else d = JSON.parse(sessionStorage.getItem(KEY) || '{}');
+    if (d.ref) sessionStorage.setItem(KEY, JSON.stringify(d));
+    else {
+      const saved = JSON.parse(sessionStorage.getItem(KEY) || '{}');
+      if (saved.ref) d = saved;
+    }
   } catch (e) {}
-  if (location.search) history.replaceState(null, '', location.pathname + location.hash);
+  // Bersihkan URL hanya bila No. order dikenali (jika tidak, URL kekal untuk semakan)
+  if (location.search && d.ref) history.replaceState(null, '', location.pathname + location.hash);
 
   const amt = parseFloat(String(d.amount || '').replace(/[^0-9.]/g, ''));
   const amtTxt = isNaN(amt) ? '' : 'RM' + amt.toFixed(2);
