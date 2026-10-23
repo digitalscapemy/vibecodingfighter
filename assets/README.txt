@@ -96,5 +96,9 @@ accent lighting, Malaysian context, photorealistic, no text, no watermark"
    dibuka di browser. Tiada audio (video main automatik tanpa bunyi).
    demo-poster.webp = satu frame dari video tersebut.
 
+12b. logo-digitalscape.png  — LOGO RASMI (footer)
+   PNG latar telus, warna kelabu cerah. Potong ruang kosong di keliling
+   logo supaya saiznya betul dalam footer.
+
 13. og-image.png       (1200 x 630)
    Versi landskap poster untuk preview bila link dikongsi di WhatsApp/FB.
