@@ -83,10 +83,21 @@
     .fact-val { font-weight: 800; font-size: 1rem; color: #fff; }
 
     /* Form BCL: penuh dalam card, tiada ruang hitam */
-    .bcl-card { background: #fff; isolation: isolate; }
+    .bcl-card {
+      background: #fff; isolation: isolate;
+      /* potong penjuru: overflow + clip-path supaya jalan di Safari juga */
+      clip-path: inset(0 round 24px);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
     .bcl-card #bcl-payment-form,
-    .bcl-card #bcl-payment-form > *,
-    .bcl-card iframe { display: block; width: 100% !important; max-width: 100% !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; }
+    .bcl-card #bcl-payment-form > * {
+      display: block; width: 100% !important; max-width: 100% !important;
+      margin: 0 !important; border: 0 !important; border-radius: 22px !important; overflow: hidden;
+    }
+    .bcl-card iframe {
+      display: block; width: 100% !important; max-width: 100% !important;
+      margin: 0 !important; border: 0 !important; border-radius: 22px !important;
+    }
 
     /* Highlight kuning bergegar (tajuk hero) */
     .shake-hl {
