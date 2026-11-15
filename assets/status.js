@@ -54,10 +54,10 @@
     a.target = '_blank'; a.rel = 'noopener';
   });
 
-  // Countdown kelas: Sabtu 7 Nov 2026, 9:00 pagi (MYT)
+  // Countdown kelas: Sabtu 21 Nov 2026, 9:00 pagi (MYT)
   const cd = document.getElementById('cd');
   if (cd) {
-    const target = new Date('2026-11-07T09:00:00+08:00').getTime();
+    const target = new Date('2026-11-21T09:00:00+08:00').getTime();
     const pad = n => String(n).padStart(2, '0');
     const tick = () => {
       const t = Math.max(0, target - Date.now());
