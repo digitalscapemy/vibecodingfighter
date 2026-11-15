@@ -127,14 +127,15 @@
     .browser .ph { border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
 
     /* Foto coach: glow berwarna beranimasi + fade bawah */
-    .coach { position: relative; max-width: 420px; margin: 0 auto; isolation: isolate; }
+    .coach { position: relative; max-width: 480px; margin: 0 auto; isolation: isolate; }
     .coach-img {
       position: relative; z-index: 1; display: block; width: 100%; height: auto;
-      -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
-              mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
-      filter: drop-shadow(0 0 1.5px rgba(255,255,255,.45)) drop-shadow(0 0 14px rgba(140,170,255,.35));
+      -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%), linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+      -webkit-mask-composite: source-in;
+              mask-image: linear-gradient(to bottom, #000 72%, transparent 98%), linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+              mask-composite: intersect;
     }
-    .coach-glow { position: absolute; inset: 4% -10% 18%; z-index: 0; pointer-events: none; filter: blur(55px); }
+    .coach-glow { position: absolute; inset: -6% -6% 20%; z-index: 0; pointer-events: none; filter: blur(55px); }
     .coach-glow span { position: absolute; border-radius: 999px; opacity: .75; }
     .coach-glow .g1 { width: 62%; height: 58%; left: 4%;  top: 12%; background: #ffd400; animation: glowA 7s ease-in-out infinite; }
     .coach-glow .g2 { width: 60%; height: 60%; right: 2%; top: 4%;  background: #5b8cff; animation: glowB 8s ease-in-out infinite; }
@@ -390,7 +391,7 @@
 
     /* ================= NAIK TARAF: warna logo ================= */
     :root { --y: #ffd400; --m: #ff3bd4; --c: #22d3ee; }
-    .grad-text { background: linear-gradient(90deg, var(--y), var(--m) 55%, var(--c)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grad-text { color: var(--y); }
 
     /* Hero baru: logo besar */
     .hero2 { position: relative; overflow: hidden; isolation: isolate; }
@@ -461,11 +462,6 @@
     .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem 1rem; margin: 0 .3rem; border-radius: 999px; background: #12131d; border: 1px solid #1f2130; font-weight: 700; white-space: nowrap; }
     .marquee-rev { display: flex; width: max-content; animation: mq 50s linear infinite reverse; }
 
-    /* Meter kesukaran */
-    .meter { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; }
-    .meter i { height: 12px; border-radius: 4px; background: rgba(255,255,255,.08); }
-    .meter i.on { background: linear-gradient(90deg, var(--y), #ffe866); box-shadow: 0 0 12px rgba(255,212,0,.5); animation: pulseSoft 2s ease-in-out infinite; }
-
     /* Border gradient berputar */
     .spin-border { position: relative; isolation: isolate; border: 0 !important; }
     .spin-border::before { content: ''; position: absolute; inset: -2px; z-index: -2; border-radius: inherit; overflow: hidden;
@@ -526,6 +522,15 @@
     .wa-float svg { width: 30px; height: 30px; fill: currentColor; }
     @media (max-width: 639px) { .wa-float { width: 52px; height: 52px; right: 14px; bottom: 92px; opacity: 0; pointer-events: none; transition: opacity .3s ease; } body.mbar-on .wa-float { opacity: 1; pointer-events: auto; } }
 
+    /* Ulasan Google */
+    .rev-stars { display: block; color: #fbbc05; letter-spacing: .1em; font-size: 14px; line-height: 1.2; }
+    .rev-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 640px) { .rev-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; } }
+    @media (min-width: 1024px) { .rev-grid { grid-template-columns: repeat(3, 1fr); } }
+    .rev { display: flex; flex-direction: column; margin: 0; padding: 1.25rem; border-radius: 20px; background: #12131d; border: 1px solid #1f2130; transition: transform .3s ease, border-color .3s ease; }
+    .rev:hover { transform: translateY(-3px); border-color: rgba(255,212,0,.45); }
+    .rev-av { flex-shrink: 0; width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center; font-weight: 800; color: #0b0b12; background: var(--c); }
+
     /* Jeda animasi hiasan bila seksyen di luar skrin */
     .off-screen, .off-screen * { animation-play-state: paused !important; }
 
@@ -577,7 +582,7 @@
       </p>
 
       <div class="rv">
-        <div class="mb-2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i><span data-phase-label>HARGA PELANCARAN</span></span></div>
+        <div class="mb-2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i><span data-phase-label>LAUNCH PRICE</span></span></div>
         <div class="price-row mb-1"><span class="price-old text-2xl">RM299</span><span class="price-now text-5xl sm:text-6xl">RM<span data-price>99</span></span></div>
         <p class="urg mb-5" data-urg>Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
@@ -611,8 +616,8 @@
   <!-- Jalur sistem -->
   <div class="bg-volt overflow-hidden py-3">
     <div class="marquee font-display font-extrabold text-ink text-lg whitespace-nowrap">
-      <span class="px-6">PEJUANG VIBE CODING <i data-lucide="zap" class="mq-ic"></i> KREATIVITI BERTEMU TEKNOLOGI <i data-lucide="zap" class="mq-ic"></i> KUASAI ALIRAN KERJA AI <i data-lucide="zap" class="mq-ic"></i> AUTOMASIKAN TUGAS BERULANG <i data-lucide="zap" class="mq-ic"></i> DARI IDEA KE SISTEM LIVE <i data-lucide="zap" class="mq-ic"></i> URUS SERVER SENDIRI <i data-lucide="zap" class="mq-ic"></i> SAMBUNG DOMAIN ANDA <i data-lucide="zap" class="mq-ic"></i> PERCEPAT PEMBANGUNAN PRODUK <i data-lucide="zap" class="mq-ic"></i> CIPTA SOLUSI DIGITAL <i data-lucide="zap" class="mq-ic"></i> JADIKAN AI RAKAN KERJA <i data-lucide="zap" class="mq-ic"></i></span>
-      <span class="px-6">PEJUANG VIBE CODING <i data-lucide="zap" class="mq-ic"></i> KREATIVITI BERTEMU TEKNOLOGI <i data-lucide="zap" class="mq-ic"></i> KUASAI ALIRAN KERJA AI <i data-lucide="zap" class="mq-ic"></i> AUTOMASIKAN TUGAS BERULANG <i data-lucide="zap" class="mq-ic"></i> DARI IDEA KE SISTEM LIVE <i data-lucide="zap" class="mq-ic"></i> URUS SERVER SENDIRI <i data-lucide="zap" class="mq-ic"></i> SAMBUNG DOMAIN ANDA <i data-lucide="zap" class="mq-ic"></i> PERCEPAT PEMBANGUNAN PRODUK <i data-lucide="zap" class="mq-ic"></i> CIPTA SOLUSI DIGITAL <i data-lucide="zap" class="mq-ic"></i> JADIKAN AI RAKAN KERJA <i data-lucide="zap" class="mq-ic"></i></span>
+      <span class="px-6">VIBE CODING FIGHTER <i data-lucide="zap" class="mq-ic"></i> KREATIVITI BERTEMU TEKNOLOGI <i data-lucide="zap" class="mq-ic"></i> KUASAI AI WORKFLOW <i data-lucide="zap" class="mq-ic"></i> AUTOMATION TUGAS BERULANG <i data-lucide="zap" class="mq-ic"></i> DARI IDEA KE SISTEM LIVE <i data-lucide="zap" class="mq-ic"></i> URUS SERVER SENDIRI <i data-lucide="zap" class="mq-ic"></i> SAMBUNG DOMAIN ANDA <i data-lucide="zap" class="mq-ic"></i> PERCEPAT PRODUCT DEVELOPMENT <i data-lucide="zap" class="mq-ic"></i> CIPTA DIGITAL SOLUTION <i data-lucide="zap" class="mq-ic"></i> JADIKAN AI PARTNER KERJA <i data-lucide="zap" class="mq-ic"></i></span>
+      <span class="px-6">VIBE CODING FIGHTER <i data-lucide="zap" class="mq-ic"></i> KREATIVITI BERTEMU TEKNOLOGI <i data-lucide="zap" class="mq-ic"></i> KUASAI AI WORKFLOW <i data-lucide="zap" class="mq-ic"></i> AUTOMATION TUGAS BERULANG <i data-lucide="zap" class="mq-ic"></i> DARI IDEA KE SISTEM LIVE <i data-lucide="zap" class="mq-ic"></i> URUS SERVER SENDIRI <i data-lucide="zap" class="mq-ic"></i> SAMBUNG DOMAIN ANDA <i data-lucide="zap" class="mq-ic"></i> PERCEPAT PRODUCT DEVELOPMENT <i data-lucide="zap" class="mq-ic"></i> CIPTA DIGITAL SOLUTION <i data-lucide="zap" class="mq-ic"></i> JADIKAN AI PARTNER KERJA <i data-lucide="zap" class="mq-ic"></i></span>
     </div>
   </div>
 
@@ -687,7 +692,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Upah developer, tunggu berminggu, bayar lagi setiap kali nak ubah.<br class="hidden sm:block" /> <span class="grad-text">Atau bina sendiri.</span></h2>
       </div>
 
-      <div class="zoom mb-8 rv"><img src="./assets/cara-lama-baru.webp" alt="Kiri: pemilik bisnes tertekan dengan invois developer. Kanan: orang yang sama tersenyum dengan sistem yang dibina sendiri" class="w-full aspect-[3/2] object-cover" loading="lazy" data-ph="Perbandingan cara lama vs cara baru" data-ratio="3/2" onerror="ph(this)" /></div>
+      <div class="zoom mb-8 rv"><img src="./assets/cara-lama-baru.webp?v=5" alt="Kiri: pemilik bisnes tertekan dengan invois developer. Kanan: orang yang sama tersenyum dengan sistem yang dibina sendiri" class="w-full aspect-[3/2] object-cover" loading="lazy" data-ph="Perbandingan cara lama vs cara baru" data-ratio="3/2" onerror="ph(this)" /></div>
 
       <div class="vs">
         <div class="vs-col vs-old rv">
@@ -731,17 +736,17 @@
           <div class="px-2 pb-2">
             <div class="flex items-center gap-3 mb-2 text-xl">
               <span class="num-badge">01</span>
-              <h3 class="font-extrabold leading-snug">Sistem Tempahan</h3>
+              <h3 class="font-extrabold leading-snug">Sistem Booking</h3>
             </div>
             <p class="text-white/65">Pelanggan pilih tarikh, masa dan servis sendiri. Semua tempahan direkod secara automatik tanpa perlu balas mesej satu per satu.</p>
           </div>
         </article>
         <article class="bg-card rounded-3xl p-4 border border-line rv rv-d1">
-          <div class="zoom mb-5"><img src="./assets/hasil-crm.webp" alt="Contoh Sistem Pengurusan Pelanggan (CRM)" class="w-full aspect-[16/10] object-cover" data-ph="Mockup CRM (senarai pelanggan, sejarah pembelian, follow-up)" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="zoom mb-5"><img src="./assets/hasil-crm.webp" alt="Contoh Sistem CRM" class="w-full aspect-[16/10] object-cover" data-ph="Mockup CRM (senarai pelanggan, sejarah pembelian, follow-up)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <div class="flex items-center gap-3 mb-2 text-xl">
               <span class="num-badge">02</span>
-              <h3 class="font-extrabold leading-snug">Sistem Pengurusan Pelanggan (CRM)</h3>
+              <h3 class="font-extrabold leading-snug">Sistem CRM (Customer Management)</h3>
             </div>
             <p class="text-white/65">Simpan maklumat pelanggan, sejarah pembelian dan rekod follow-up dalam satu tempat untuk memudahkan urusan dan meningkatkan repeat sales.</p>
           </div>
@@ -751,7 +756,7 @@
           <div class="px-2 pb-2">
             <div class="flex items-center gap-3 mb-2 text-xl">
               <span class="num-badge">03</span>
-              <h3 class="font-extrabold leading-snug">Sistem Stok & Inventori</h3>
+              <h3 class="font-extrabold leading-snug">Sistem Stock & Inventory</h3>
             </div>
             <p class="text-white/65">Pantau stok masuk, stok keluar dan baki inventori secara automatik. Mudah kesan barang yang hampir habis tanpa perlu semak fail Excel.</p>
           </div>
@@ -761,17 +766,17 @@
           <div class="px-2 pb-2">
             <div class="flex items-center gap-3 mb-2 text-xl">
               <span class="num-badge">04</span>
-              <h3 class="font-extrabold leading-snug">Sistem Jualan & Pesanan</h3>
+              <h3 class="font-extrabold leading-snug">Sistem Sales & Order</h3>
             </div>
             <p class="text-white/65">Bina katalog produk sendiri, terima pesanan dan urus status order dalam satu platform tanpa bergantung sepenuhnya pada chat.</p>
           </div>
         </article>
         <article class="bg-card rounded-3xl p-4 border border-line rv">
-          <div class="zoom mb-5"><img src="./assets/hasil-projek.webp" alt="Contoh Sistem Pengurusan Projek & Tugasan" class="w-full aspect-[16/10] object-cover" data-ph="Mockup papan tugasan (kanban, deadline, progress)" data-ratio="16/10" onerror="ph(this)" /></div>
+          <div class="zoom mb-5"><img src="./assets/hasil-projek.webp" alt="Contoh Sistem Project Management" class="w-full aspect-[16/10] object-cover" data-ph="Mockup papan tugasan (kanban, deadline, progress)" data-ratio="16/10" onerror="ph(this)" /></div>
           <div class="px-2 pb-2">
             <div class="flex items-center gap-3 mb-2 text-xl">
               <span class="num-badge">05</span>
-              <h3 class="font-extrabold leading-snug">Sistem Pengurusan Projek & Tugasan</h3>
+              <h3 class="font-extrabold leading-snug">Sistem Project Management</h3>
             </div>
             <p class="text-white/65">Agihkan tugasan, tetapkan deadline dan pantau progress kerja pasukan supaya semua urusan lebih tersusun dan mudah dikawal.</p>
           </div>
@@ -806,14 +811,14 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Kalau boleh brief staf guna WhatsApp, <span class="grad-text">anda boleh brief AI.</span></h2>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <article class="persona rv"><img src="./assets/persona-bisnes.webp" alt="Pemilik bisnes kecil" loading="lazy" data-ph="Pemilik bisnes kecil" data-ratio="1/1" onerror="ph(this)" />
+        <article class="persona rv"><img src="./assets/persona-bisnes.webp?v=3" alt="Pemilik bisnes kecil" loading="lazy" data-ph="Pemilik bisnes kecil" data-ratio="1/1" onerror="ph(this)" />
           <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Pemilik bisnes kecil</h3><p class="text-white/60 text-sm">Nak sistem tempahan, stok atau CRM sendiri tanpa upah developer.</p></div></article>
-        <article class="persona rv rv-d1"><img src="./assets/persona-freelancer.webp" alt="Freelancer dan agensi" loading="lazy" data-ph="Freelancer / agensi" data-ratio="1/1" onerror="ph(this)" />
+        <article class="persona rv rv-d1"><img src="./assets/persona-freelancer.webp?v=3" alt="Freelancer dan agensi" loading="lazy" data-ph="Freelancer / agensi" data-ratio="1/1" onerror="ph(this)" />
           <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Freelancer &amp; agensi</h3><p class="text-white/60 text-sm">Tambah servis bina web app untuk klien, siap lebih cepat.</p></div></article>
-        <article class="persona rv rv-d2"><img src="./assets/persona-staf.webp" alt="Staf dan eksekutif" loading="lazy" data-ph="Staf / eksekutif" data-ratio="1/1" onerror="ph(this)" />
-          <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Staf &amp; eksekutif</h3><p class="text-white/60 text-sm">Automasikan kerja berulang di pejabat dan jadi orang paling berharga dalam team.</p></div></article>
-        <article class="persona rv rv-d3"><img src="./assets/persona-pemula.webp" alt="Pemula" loading="lazy" data-ph="Pemula / pelajar" data-ratio="1/1" onerror="ph(this)" />
-          <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Pemula langsung</h3><p class="text-white/60 text-sm">Tak pernah coding? Lagi bagus. Kita mula dari install yang pertama.</p></div></article>
+        <article class="persona rv rv-d2"><img src="./assets/persona-staf.webp?v=3" alt="Staf dan eksekutif" loading="lazy" data-ph="Staf / eksekutif" data-ratio="1/1" onerror="ph(this)" />
+          <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Staf &amp; eksekutif</h3><p class="text-white/60 text-sm">Automate kerja berulang di pejabat dan jadi orang paling berharga dalam team.</p></div></article>
+        <article class="persona rv rv-d3"><img src="./assets/persona-pemula.webp?v=3" alt="Beginner" loading="lazy" data-ph="Beginner" data-ratio="1/1" onerror="ph(this)" />
+          <div class="p-4"><h3 class="font-extrabold text-lg leading-snug mb-1">Beginner</h3><p class="text-white/60 text-sm">Tak pernah coding? Lagi bagus. Kita mula dari install yang pertama.</p></div></article>
       </div>
     </div>
     <div class="mt-12 space-y-3 rv" aria-label="Contoh industri">
@@ -834,11 +839,11 @@
 
       <div class="grid sm:grid-cols-2 gap-6">
         <article class="bg-card border border-line rounded-3xl p-4 rv">
-          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-1-poster.webp" aria-label="Persediaan Persekitaran Vibe Coding"><source src="./assets/modul-1.mp4" type="video/mp4" /></video></div>
+          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-1-poster.webp" aria-label="Environment Setup Vibe Coding"><source src="./assets/modul-1.mp4" type="video/mp4" /></video></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 01</span>
-            <h3 class="text-xl font-extrabold mb-2">Persediaan Persekitaran Vibe Coding</h3>
-            <p class="text-white/65">Sediakan PC dengan tools dan perisian yang diperlukan untuk mula membina sistem menggunakan AI.</p>
+            <h3 class="text-xl font-extrabold mb-2">Environment Setup untuk Vibe Coding</h3>
+            <p class="text-white/65">Setup PC dengan tools dan software yang diperlukan untuk mula membina sistem menggunakan AI.</p>
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv rv-d1">
@@ -850,60 +855,55 @@
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv">
-          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-3-poster.webp" aria-label="Persediaan VPS dan Pemasangan Sistem"><source src="./assets/modul-3.mp4" type="video/mp4" /></video></div>
+          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-3-poster.webp" aria-label="VPS Setup dan Install Sistem"><source src="./assets/modul-3.mp4" type="video/mp4" /></video></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 03</span>
-            <h3 class="text-xl font-extrabold mb-2">Persediaan VPS dan Pemasangan Sistem</h3>
-            <p class="text-white/65">Pelajari cara menyediakan VPS dan memasang aplikasi yang diperlukan untuk menjalankan sistem di server sendiri.</p>
+            <h3 class="text-xl font-extrabold mb-2">VPS Setup dan Install Sistem</h3>
+            <p class="text-white/65">Pelajari cara setup VPS dan install aplikasi yang diperlukan untuk menjalankan sistem di server sendiri.</p>
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv rv-d1">
-          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-4-poster.webp" aria-label="Automasi Deployment dengan GitHub"><source src="./assets/modul-4.mp4" type="video/mp4" /></video></div>
+          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-4-poster.webp" aria-label="Auto Deployment dengan GitHub"><source src="./assets/modul-4.mp4" type="video/mp4" /></video></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 04</span>
-            <h3 class="text-xl font-extrabold mb-2">Automasi Deployment dengan GitHub</h3>
-            <p class="text-white/65">Tetapkan proses automatik untuk menghantar perubahan kod dari GitHub terus ke server tanpa perlu deploy secara manual setiap kali.</p>
+            <h3 class="text-xl font-extrabold mb-2">Auto Deployment dengan GitHub</h3>
+            <p class="text-white/65">Setup CI/CD supaya setiap perubahan kod di GitHub terus di-deploy ke server tanpa perlu deploy secara manual setiap kali.</p>
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv">
-          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-5-poster.webp" aria-label="Pengurusan Projek dan Database dalam VPS"><source src="./assets/modul-5.mp4" type="video/mp4" /></video></div>
+          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-5-poster.webp" aria-label="Project dan Database Management dalam VPS"><source src="./assets/modul-5.mp4" type="video/mp4" /></video></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 05</span>
-            <h3 class="text-xl font-extrabold mb-2">Pengurusan Projek dan Database dalam VPS</h3>
+            <h3 class="text-xl font-extrabold mb-2">Project dan Database Management dalam VPS</h3>
             <p class="text-white/65">Pelajari cara mengurus projek, database dan fail sistem yang disimpan dalam server.</p>
           </div>
         </article>
         <article class="bg-card border border-line rounded-3xl p-4 rv rv-d1">
-          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-6-poster.webp" aria-label="Persediaan Domain dan Cloudflare"><source src="./assets/modul-6.mp4" type="video/mp4" /></video></div>
+          <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-6-poster.webp" aria-label="Domain dan Cloudflare Setup"><source src="./assets/modul-6.mp4" type="video/mp4" /></video></div>
           <div class="px-2 pb-2">
             <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 06</span>
-            <h3 class="text-xl font-extrabold mb-2">Persediaan Domain dan Cloudflare</h3>
-            <p class="text-white/65">Pelajari cara mengurus domain, menetapkan DNS dan menghubungkan domain kepada sistem yang telah dipasang di server.</p>
+            <h3 class="text-xl font-extrabold mb-2">Domain dan Cloudflare Setup</h3>
+            <p class="text-white/65">Pelajari cara urus domain, setup DNS dan connect domain kepada sistem yang telah dipasang di server.</p>
           </div>
         </article>
       </div>
 
       <!-- Modul 07: satu column -->
       <article class="mt-6 bg-card rounded-3xl p-4 sm:p-6 border border-volt/40 spin-border rv">
-        <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-7-poster.webp" aria-label="Pelancaran Projek ke Sistem Sebenar"><source src="./assets/modul-7.mp4" type="video/mp4" /></video></div>
+        <div class="zoom mb-5"><video class="w-full aspect-video object-cover bg-black block" autoplay muted loop playsinline preload="metadata" poster="./assets/modul-7-poster.webp" aria-label="Go Live: Launch Projek ke Production"><source src="./assets/modul-7.mp4" type="video/mp4" /></video></div>
         <div class="px-2 pb-2 text-center">
           <span class="inline-block bg-volt text-ink font-extrabold text-xs rounded-md px-2.5 py-1 mb-3">MODUL 07</span>
-          <h3 class="text-2xl font-extrabold mb-2">Pelancaran Projek ke Sistem Sebenar</h3>
+          <h3 class="text-2xl font-extrabold mb-2">Go Live: Launch Projek ke Production</h3>
           <p class="text-white/65 max-w-2xl mx-auto">Praktikkan semua yang telah dipelajari untuk membawa projek dari PC ke server sehingga sistem boleh diakses dan digunakan secara online.</p>
         </div>
       </article>
-
-      <div class="max-w-xl mx-auto mt-10 bg-card border border-line rounded-3xl p-6 rv">
-        <div class="flex items-center justify-between mb-3"><p class="font-extrabold">Tahap kesukaran</p><p class="font-display font-extrabold text-2xl text-volt">3/10</p></div>
-        <div class="meter mb-3"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <p class="text-white/60 text-sm">Kalau anda boleh guna Google Form dan WhatsApp, anda boleh ikut kelas ni. Setiap langkah ditunjuk satu-satu.</p>
-      </div>
 
       <div class="cta-block rv">
         <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
+
     </div>
   </section>
 
@@ -912,9 +912,9 @@
   ========================================================== -->
   <section class="py-20 bg-mist border-y border-line overflow-hidden">
     <div class="max-w-4xl mx-auto px-5 text-center">
-      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">PROSES PEMBANGUNAN</p>
+      <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">DEVELOPMENT PROCESS</p>
       <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 rv rv-d1">Dari prompt pertama hingga sistem sedia digunakan.</h2>
-      <p class="mb-4 rv rv-d1"><span class="inline-flex items-center gap-2 font-display font-extrabold text-sm tracking-wide rounded-full px-4 py-1.5 border border-volt/50 bg-volt/10"><i data-lucide="zap" class="w-4 h-4 text-volt"></i>KAEDAH P.B.L. — <span class="text-volt">PROMPT → BINA → LIVE</span></span></p>
+      <p class="mb-4 rv rv-d1"><span class="inline-flex items-center gap-2 font-display font-extrabold text-sm tracking-wide rounded-full px-4 py-1.5 border border-volt/50 bg-volt/10"><i data-lucide="zap" class="w-4 h-4 text-volt"></i>KAEDAH P.B.L. — <span class="text-volt">PROMPT → BUILD → LIVE</span></span></p>
       <p class="text-white/65 text-lg max-w-2xl mx-auto mb-12 rv rv-d2">Lihat bagaimana idea anda berkembang melalui setiap langkah, daripada merancang dan membina sistem menggunakan AI sehinggalah dilancarkan secara online.</p>
 
       <!-- Aliran langkah -->
@@ -959,7 +959,7 @@
             <div class="term-head"><span class="t-badge">Claude Code</span><span class="t-dim">~/kek-mak-nab</span></div>
             <p class="t-line"><span class="t-acc">&gt;</span> <span id="demoType"></span><span class="caret"></span></p>
             <div class="t-plan">
-              <p class="fx t-acc2">● Baik. Ini pelan pembinaan:</p>
+              <p class="fx t-acc2">● Baik. Ini build plan:</p>
               <p class="fx"><i data-lucide="check" class="d-ic"></i> Halaman utama &amp; katalog kek</p>
               <p class="fx"><i data-lucide="check" class="d-ic"></i> Kalendar tempahan + slot masa</p>
               <p class="fx"><i data-lucide="check" class="d-ic"></i> Bayaran deposit online</p>
@@ -1022,10 +1022,10 @@
 
           <!-- 4. OPTIMIZE -->
           <div class="scene opt" data-scene="opt">
-            <p class="opt-h"><i data-lucide="gauge" class="w-4 h-4"></i> Semakan &amp; pengoptimuman</p>
-            <div class="opt-row fx"><span>Kelajuan halaman</span><span class="bar"><i style="--v:98%"></i></span><b>98</b></div>
-            <div class="opt-row fx"><span>Mesra telefon</span><span class="bar"><i style="--v:100%"></i></span><b>100</b></div>
-            <div class="opt-row fx"><span>Keselamatan</span><span class="bar"><i style="--v:96%"></i></span><b>96</b></div>
+            <p class="opt-h"><i data-lucide="gauge" class="w-4 h-4"></i> Review &amp; Optimization</p>
+            <div class="opt-row fx"><span>Page speed</span><span class="bar"><i style="--v:98%"></i></span><b>98</b></div>
+            <div class="opt-row fx"><span>Mobile friendly</span><span class="bar"><i style="--v:100%"></i></span><b>100</b></div>
+            <div class="opt-row fx"><span>Security</span><span class="bar"><i style="--v:96%"></i></span><b>96</b></div>
             <div class="opt-row fx"><span>SEO</span><span class="bar"><i style="--v:95%"></i></span><b>95</b></div>
             <p class="fx t-ok mt-3"><i data-lucide="check" class="d-ic"></i> 0 error · Sedia untuk deploy</p>
           </div>
@@ -1110,8 +1110,8 @@
         <div class="coach-glow" aria-hidden="true">
           <span class="g1"></span><span class="g2"></span><span class="g3"></span>
         </div>
-        <img src="./assets/trainer.webp" alt="Coach Mikhail" class="coach-img" loading="lazy"
-             data-ph="Foto Coach Mikhail (potret)" data-ratio="4/5" onerror="ph(this)" />
+        <img src="./assets/trainer.webp?v=4" alt="Coach Mikhail" class="coach-img" loading="lazy"
+             data-ph="Foto Coach Mikhail (potret)" data-ratio="1/1" onerror="ph(this)" />
       </div>
       <div class="cred-wrap max-w-2xl mx-auto mb-10 -mt-6 relative z-10 rv">
         <div class="cred">
@@ -1132,19 +1132,19 @@
         <div class="cred">
           <i data-lucide="workflow" class="cred-ic"></i>
           <b class="cred-t">Workflow Automation</b>
-          <p class="cred-s">AUTOMASI PROSES KERJA</p>
+          <p class="cred-s">AUTOMATION PROSES BISNES</p>
         </div>
       </div>
 
       <div class="bg-card border border-line rounded-3xl p-7 sm:p-9 space-y-4 text-lg text-white/80 leading-relaxed rv">
-        <p>Saya Mikhail. Selama 10 tahun dalam dunia bisnes dan IT, saya banyak melihat idea yang berpotensi tinggi terpaksa diketepikan. Bukan sebab idea itu tak bagus, tetapi kerana kos pembangunan yang tinggi dan kebergantungan kepada developer untuk merealisasikannya.</p>
+        <p>Saya Mikhail. Selama 10 tahun dalam dunia bisnes dan IT, saya banyak melihat idea yang berpotensi tinggi terpaksa diketepikan. Bukan sebab idea itu tak bagus, tetapi kerana kos development yang tinggi dan kebergantungan kepada developer untuk merealisasikannya.</p>
         <p>Dengan Vibe Coding, cara kita membina sistem dah berubah. AI membolehkan kita menterjemahkan idea kepada sistem yang berfungsi, walaupun kita bukan programmer profesional.</p>
-        <p>Dalam kelas ini, saya akan kongsikan workflow yang praktikal, daripada menyediakan persekitaran Vibe Coding, membina sistem dengan AI, sehinggalah deploy ke server supaya boleh diakses secara online.</p>
+        <p>Dalam kelas ini, saya akan kongsikan workflow yang praktikal, daripada setup environment Vibe Coding, membina sistem dengan AI, sehinggalah deploy ke server supaya boleh diakses secara online.</p>
         <p>Bukan sekadar tengok demo. Kita akan belajar prosesnya langkah demi langkah supaya anda faham bagaimana nak membawa idea sendiri menjadi sistem yang boleh digunakan.</p>
         <p class="font-bold text-white">Jumpa anda pada 21 November nanti.</p>
         <div class="pt-2">
           <p class="font-display font-extrabold text-xl text-white">Coach Mikhail</p>
-          <p class="text-white/50 text-sm">Pengasas, Digital Scape Venture</p>
+          <p class="text-white/50 text-sm">Founder, Digital Scape Venture</p>
         </div>
       </div>
 
@@ -1168,6 +1168,70 @@
     </div>
   </section>
 
+
+  <!-- =========================================================
+       6b. ULASAN GOOGLE (ulasan sebenar, Digital Scape MY)
+  ========================================================== -->
+  <section class="py-20 bg-mist border-y border-line deco">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">APA KATA MEREKA</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Dipercayai peniaga, freelancer dan pelajar.</h2>
+      </div>
+      <div class="rev-grid">
+        <figure class="rev rv">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#ffd400">SS</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">Syaza Saad</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“Digital scape banyak bantu untuk kita tambah skill kita terutamanya mengenai AI … Tenaga pengajar sangat details ketika mengajar, membuatkan orang baru tidak terasa asing dengan term- term yang digunakan.”</blockquote>
+        </figure>
+        <figure class="rev rv rv-d1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#ff3bd4">FA</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">Faidz Ajis</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“Apa yang saya suka ialah pendekatan mereka yang lebih fokus kepada aplikasi praktikal berbanding teori semata-mata. … Secara keseluruhan,memang padu dan mantul.Rugi kalau tak join... Saya sudah....anda bila lagi?”</blockquote>
+        </figure>
+        <figure class="rev rv">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#22d3ee">AA</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">afie akib</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“pelaburan ilmu yg sangat berbaloi! dh join semua 6 modul kelas dan jujur cakap, byk sangat benda baru yg saya belajar. … trainer guide step by step”</blockquote>
+        </figure>
+        <figure class="rev rv rv-d1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#a78bfa">NA</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">Nur Azwani Abd Rahim</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“Platform pembelajaran yang disediakan sangat memuaskan. Saya telah menyertai banyak kelas … Semua jurulatih sangat baik dan responsif kepada pelajar mereka. Ia berbaloi dengan harganya!”</blockquote>
+        </figure>
+        <figure class="rev rv">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#4ade80">M</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">Mr.L</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“Sangat berpuas hati dengan servis yang diberikan oleh Digital Scape MY. Proses komunikasi lancar, pantas memberi maklum balas dan hasil kerja sangat berkualiti. … Sangat disyorkan!”</blockquote>
+        </figure>
+        <figure class="rev rv rv-d1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="rev-av" style="--c:#fb923c">MU</span>
+            <div class="min-w-0"><figcaption class="font-bold leading-tight truncate">MTMAPPING Ukur Tanah</figcaption><span class="rev-stars" aria-label="5 bintang">★★★★★</span></div>
+            <span class="ml-auto shrink-0"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.97 10.97 0 0 0 12 1a11 11 0 0 0-9.82 6.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+          </div>
+          <blockquote class="text-white/75 text-[15px] leading-relaxed">“Sangat puas hati dengan servis yang diberikan. Team sangat mesra, cepat respon dan banyak membantu dari awal sehingga siap projek. Mereka juga terangkan setiap proses dengan jelas.”</blockquote>
+        </figure>
+      </div>
+      <p class="text-center mt-8 rv"><a href="https://maps.google.com/?cid=17701258052956033115" target="_blank" rel="noopener" class="text-volt font-bold underline underline-offset-4">Baca semua ulasan di Google →</a></p>
+    </div>
+  </section>
+
   <!-- =========================================================
        7. YURAN (value stack + tangga harga)
   ========================================================== -->
@@ -1181,7 +1245,7 @@
       <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-6 sm:p-9 rv">
         <ul class="stack text-[16px] sm:text-[17px]">
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Kelas LIVE sehari penuh</b> — Sabtu, 21 Nov 2026 (9 pagi – 5 petang)</span><span class="v">RM499</span></li>
-          <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>7 modul praktikal</b> — dari persediaan PC sampai sistem live</span><span class="v">RM350</span></li>
+          <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>7 modul praktikal</b> — dari setup PC sampai sistem live</span><span class="v">RM350</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Rakaman kelas</b> untuk ulang tonton</span><span class="v">RM199</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Group support VIP</b> — tanya bila tersekat</span><span class="v">RM199</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Jaminan Sampai Live</b> — sesi bantuan susulan jika perlu</span><span class="v">RM150</span></li>
@@ -1201,7 +1265,7 @@
       </div>
 
       <div class="max-w-xl mx-auto mt-10 bg-ink rounded-3xl p-7 sm:p-9 text-center spin-border rv">
-        <p class="text-sm font-extrabold tracking-wide text-white/60 mb-1"><span data-phase-label>HARGA PELANCARAN</span> · HARI INI</p>
+        <p class="text-sm font-extrabold tracking-wide text-white/60 mb-1"><span data-phase-label>LAUNCH PRICE</span> · HARI INI</p>
         <div class="price-row mb-2"><span class="price-old text-3xl">RM299</span><span class="price-now text-6xl">RM<span data-price>99</span></span></div>
         <p class="urg mb-6" data-urg>Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         <a href="#daftar" class="btn btn-glow w-full px-6 py-4 text-lg"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
@@ -1372,10 +1436,10 @@
 
     /* Harga ikut fasa (masa Malaysia). Uji: tambah ?now=2026-11-18T00:00:01%2B08:00 pada URL */
     const PHASES = [
-      { until: '2026-11-18T00:00:00+08:00', price: 99,  next: 129, label: 'HARGA PELANCARAN' },
+      { until: '2026-11-18T00:00:00+08:00', price: 99,  next: 129, label: 'LAUNCH PRICE' },
       { until: '2026-11-20T00:00:00+08:00', price: 129, next: 149, label: 'EARLY BIRD' },
       { until: '2026-11-21T00:00:00+08:00', price: 149, next: 199, label: 'LAST CALL' },
-      { until: null,                        price: 199, next: null, label: 'HARGA BIASA' },
+      { until: null,                        price: 199, next: null, label: 'NORMAL PRICE' },
     ];
     const qNow = new URLSearchParams(location.search).get('now');
     const offset = qNow && !isNaN(Date.parse(qNow)) ? Date.parse(qNow) - Date.now() : 0;
