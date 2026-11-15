@@ -495,17 +495,33 @@
 
     /* Kad tiket */
     .ticket { position: relative; display: grid; grid-template-columns: 1fr; border-radius: 24px; background: linear-gradient(135deg, #171826, #0f1019); border: 1px solid rgba(255,212,0,.45); overflow: hidden; }
-    @media (min-width: 640px) { .ticket { grid-template-columns: 1fr auto; } }
-    .ticket-main { padding: 1.5rem 1.6rem; }
-    .ticket-side { position: relative; padding: 1.5rem 1.6rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .6rem; background: rgba(255,212,0,.06); }
-    .ticket-side::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px;
-      background: repeating-linear-gradient(to bottom, rgba(255,212,0,.7) 0 8px, transparent 8px 16px); background-size: 2px 32px; animation: dashMove 1.2s linear infinite; }
-    @media (max-width: 639px) { .ticket-side::before { left: 10px; right: 10px; top: 0; bottom: auto; width: auto; height: 2px;
-      background: repeating-linear-gradient(to right, rgba(255,212,0,.7) 0 8px, transparent 8px 16px); background-size: 32px 2px; animation-name: dashMoveX; } }
+    .ticket-main { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .9rem; padding: 1.4rem 1.2rem 1.3rem; }
+    .ticket-logo { width: 150px; height: auto; }
+    .ticket-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+    .ticket-facts li { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .6rem .3rem; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); font-size: 12.5px; line-height: 1.3; color: rgba(255,255,255,.75); }
+    .ticket-facts svg { width: 18px; height: 18px; color: #ffd400; }
+    .ticket-facts b { display: block; color: #fff; font-size: 13.5px; }
+    .ticket-side { position: relative; padding: 1.3rem 1.2rem 1.4rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .7rem; background: rgba(255,212,0,.06); }
+    .ticket-side::before { content: ''; position: absolute; left: 18px; right: 18px; top: 0; height: 2px;
+      background: repeating-linear-gradient(to right, rgba(255,212,0,.7) 0 8px, transparent 8px 16px); background-size: 32px 2px; animation: dashMoveX 1.2s linear infinite; }
+    .notch { position: absolute; width: 26px; height: 26px; border-radius: 99px; background: #07070c; border: 1px solid rgba(255,212,0,.45); z-index: 2; top: -13px; }
+    .notch.n1 { left: -13px; } .notch.n2 { right: -13px; }
+    @media (min-width: 640px) {
+      .ticket { grid-template-columns: 1fr auto; }
+      .ticket-main { flex-direction: row; text-align: left; gap: 1.4rem; padding: 1.5rem 1.6rem; }
+      .ticket-logo { width: 170px; flex-shrink: 0; }
+      .ticket-info { flex: 1; min-width: 0; }
+      .ticket-facts { grid-template-columns: 1fr; gap: .35rem; }
+      .ticket-facts li { flex-direction: row; align-items: center; gap: .55rem; padding: 0; background: none; border: 0; font-size: 15px; }
+      .ticket-facts b { display: inline; font-size: 15px; margin-right: .3rem; }
+      .ticket-side { padding: 1.5rem 1.6rem; min-width: 260px; }
+      .ticket-side::before { left: 0; right: auto; top: 18px; bottom: 18px; width: 2px; height: auto;
+        background: repeating-linear-gradient(to bottom, rgba(255,212,0,.7) 0 8px, transparent 8px 16px); background-size: 2px 32px; animation-name: dashMove; }
+      .notch { top: auto; left: -13px !important; right: auto !important; }
+      .notch.n1 { top: -13px; } .notch.n2 { bottom: -13px; }
+    }
     @keyframes dashMove { to { background-position: 0 32px; } }
     @keyframes dashMoveX { to { background-position: 32px 0; } }
-    .ticket::before, .ticket::after { content: ''; position: absolute; width: 26px; height: 26px; border-radius: 99px; background: #07070c; border: 1px solid rgba(255,212,0,.45); z-index: 2; }
-    .ticket::before { left: -14px; top: 50%; transform: translateY(-50%); } .ticket::after { right: -14px; top: 50%; transform: translateY(-50%); }
 
     /* Penutup aurora */
     .aurora { position: relative; overflow: hidden; isolation: isolate; }
@@ -1156,18 +1172,20 @@
 
       <div class="ticket mt-10 rv">
         <div class="ticket-main">
-          <img src="./assets/logo-vbfighter.webp" alt="Vibe Coding Fighter" class="h-24 sm:h-28 w-auto mb-3" loading="lazy" onerror="this.remove()" />
-          <p class="text-xs font-extrabold tracking-wide text-volt mb-1">TIKET KELAS LIVE</p>
-          <ul class="text-white/80 space-y-1 text-[15px]">
-            <li class="flex gap-2"><i data-lucide="calendar-days" class="w-4 h-4 text-volt mt-1"></i>Sabtu, 21 November 2026</li>
-            <li class="flex gap-2"><i data-lucide="clock" class="w-4 h-4 text-volt mt-1"></i>9 pagi – 5 petang</li>
-            <li class="flex gap-2"><i data-lucide="user-round" class="w-4 h-4 text-volt mt-1"></i>Coach Mikhail</li>
-          </ul>
+          <img src="./assets/logo-vbfighter.webp" alt="Vibe Coding Fighter" class="ticket-logo" loading="lazy" onerror="this.remove()" />
+          <div class="ticket-info">
+            <p class="text-xs font-extrabold tracking-[.12em] text-volt mb-2">TIKET KELAS LIVE</p>
+            <ul class="ticket-facts">
+              <li><i data-lucide="calendar-days"></i><span><b>Sabtu</b>21 Nov 2026</span></li>
+              <li><i data-lucide="clock"></i><span><b>9 pagi</b>– 5 petang</span></li>
+              <li><i data-lucide="user-round"></i><span><b>Trainer</b>Coach Mikhail</span></li>
+            </ul>
+          </div>
         </div>
         <div class="ticket-side">
-          <span class="price-old text-lg">RM299</span>
-          <span class="price-now text-5xl">RM<span data-price>99</span></span>
-          <a href="#daftar" class="btn btn-glow px-8 py-3 text-base w-full">Ambil Tiket Saya</a>
+          <span class="notch n1" aria-hidden="true"></span><span class="notch n2" aria-hidden="true"></span>
+          <div class="price-row"><span class="price-old text-lg">RM299</span><span class="price-now text-5xl">RM<span data-price>99</span></span></div>
+          <a href="#daftar" class="btn btn-glow px-8 py-3.5 text-base w-full">Ambil Tiket Saya</a>
           <p class="urg text-xs text-center" data-urg>Naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         </div>
       </div>
