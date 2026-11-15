@@ -531,6 +531,12 @@
     .rev:hover { transform: translateY(-3px); border-color: rgba(255,212,0,.45); }
     .rev-av { flex-shrink: 0; width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center; font-weight: 800; color: #0b0b12; background: var(--c); }
 
+    /* Video: sorok butang play bawaan browser (autoplay dikawal JS) */
+    video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+    video::-webkit-media-controls-overlay-play-button { display: none !important; }
+    video::-webkit-media-controls { display: none !important; }
+    video { pointer-events: none; }
+
     /* Jeda animasi hiasan bila seksyen di luar skrin */
     .off-screen, .off-screen * { animation-play-state: paused !important; }
 
@@ -1469,6 +1475,22 @@
       }
     }
     priceTick(); setInterval(priceTick, 1000);
+
+    /* Autoplay video wajib: paksa main bila kelihatan; jika browser sekat
+       (Low Power Mode / in-app browser), main pada sentuhan pertama */
+    (() => {
+      const vids = [...document.querySelectorAll('video')];
+      vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('webkit-playsinline', ''); v.setAttribute('muted', ''); });
+      const tryPlay = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+      const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? tryPlay(e.target) : e.target.pause()), { threshold: .15 });
+      vids.forEach(v => vio.observe(v));
+      const unlock = () => {
+        vids.forEach(v => { const r = v.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) tryPlay(v); else { v.play().then(() => v.pause()).catch(() => {}); } });
+        ['touchend', 'pointerdown', 'click', 'keydown'].forEach(t => removeEventListener(t, unlock, true));
+      };
+      ['touchend', 'pointerdown', 'click', 'keydown'].forEach(t => addEventListener(t, unlock, { capture: true, passive: true }));
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) vids.forEach(v => { const r = v.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) tryPlay(v); }); });
+    })();
 
     /* Jeda hiasan animasi bila seksyen di luar skrin (jimat bateri telefon) */
     const decoIO = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('off-screen', !e.isIntersecting)), { rootMargin: '100px 0px' });
