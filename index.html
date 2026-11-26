@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Coding Fighter — Kelas LIVE Bina Sistem Guna Claude Code | 21 November 2026</title>
-  <meta name="description" content="Kelas LIVE 21 November 2026 (9 pagi – 5 petang) bersama Coach Mikhail. Bina sistem dan web app sendiri guna Claude Code, dari kosong sampai live di internet. Tak perlu pandai coding." />
+  <title>Vibe Coding Fighter — Kelas LIVE Bina Sistem Guna Claude Code | 28 November 2026</title>
+  <meta name="description" content="Kelas LIVE 28 November 2026 (10 pagi – 2 petang) bersama Coach Mikhail. Bina sistem dan web app sendiri guna Claude Code, dari kosong sampai live di internet. Tak perlu pandai coding." />
   <meta property="og:title" content="Vibe Coding Fighter — From Zero To Live" />
-  <meta property="og:description" content="Kelas LIVE bina sistem guna Claude Code. Sabtu, 21 November 2026, 9 pagi – 5 petang." />
+  <meta property="og:description" content="Kelas LIVE bina sistem guna Claude Code. Sabtu, 28 November 2026, 10 pagi – 2 petang." />
   <meta property="og:image" content="./assets/og-image.png" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#07070c" />
@@ -470,21 +470,79 @@
     @property --a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
     @keyframes spinA { to { --a: 360deg; } }
 
-    /* Tangga harga */
-    .ladder { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
-    @media (min-width: 768px) { .ladder { grid-template-columns: repeat(4, 1fr); } }
-    .step-p { position: relative; text-align: center; border-radius: 20px; padding: 1.1rem .6rem; background: #12131d; border: 1px solid #1f2130; }
-    .step-p .sp-d { font-size: 12px; font-weight: 800; letter-spacing: .05em; color: rgba(255,255,255,.55); }
-    .step-p .sp-v { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.9rem; line-height: 1.2; }
-    .step-p.past { opacity: .4; } .step-p.past .sp-v { text-decoration: line-through; text-decoration-color: #ff3b3b; }
-    .step-p.future { opacity: .7; }
-    .step-p.now { background: #0b0b12; }
-    .step-p.now .sp-v { color: var(--y); font-size: 2.3rem; }
-    .step-p .sp-tag { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 11px; font-weight: 800; padding: .15rem .6rem; border-radius: 999px; background: var(--y); color: #0b0b12; display: none; animation: pulseSoft 1.6s ease-in-out infinite; }
-    .step-p.now .sp-tag { display: block; }
 
     /* Value stack */
     .stack li { display: flex; align-items: center; gap: .75rem; padding: .8rem 0; border-bottom: 1px dashed rgba(255,255,255,.1); }
+    /* Level basic -> advanced */
+    .lvl { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .lvl { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .lvl { grid-template-columns: repeat(4, 1fr); align-items: end; }
+      .lvl .l1 { margin-top: 4.5rem; } .lvl .l2 { margin-top: 3rem; } .lvl .l3 { margin-top: 1.5rem; } }
+    .lvl-card { --lc: var(--c); position: relative; background: #12131d; border: 1px solid #1f2130; border-top: 3px solid var(--lc); border-radius: 20px; padding: 1.2rem 1.2rem 1.3rem; }
+    .lvl-card.l2 { --lc: #a3e635; } .lvl-card.l3 { --lc: var(--y); } .lvl-card.l4 { --lc: var(--m); box-shadow: 0 0 34px rgba(255,59,212,.18); border-color: rgba(255,59,212,.35); border-top-color: var(--m); }
+    .lvl-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .7rem; }
+    .lvl-no { font-size: 11px; font-weight: 800; letter-spacing: .08em; padding: .2rem .6rem; border-radius: 999px; background: var(--lc); color: #0b0b12; }
+    .lvl-meter { display: inline-flex; gap: 3px; } .lvl-meter i { width: 14px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.12); }
+    .l1 .lvl-meter i:nth-child(-n+1), .l2 .lvl-meter i:nth-child(-n+2), .l3 .lvl-meter i:nth-child(-n+3), .l4 .lvl-meter i { background: var(--lc); }
+    .lvl-name { font-size: 12px; font-weight: 800; letter-spacing: .08em; color: var(--lc); }
+    .lvl-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.25rem; line-height: 1.25; margin: .15rem 0 .8rem; }
+    .lvl-list { display: grid; gap: .45rem; font-size: 14px; color: rgba(255,255,255,.72); }
+    .lvl-list li { position: relative; padding-left: 1rem; } .lvl-list li::before { content: ''; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--lc); }
+    .lvl-vs { display: grid; gap: 1rem; margin-top: 2.5rem; }
+    @media (min-width: 640px) { .lvl-vs { grid-template-columns: 1fr 1fr; } }
+    .lvl-vs-col { border-radius: 20px; padding: 1.2rem 1.3rem; background: #12131d; border: 1px solid #1f2130; }
+    .lvl-vs-col.on { border-color: rgba(255,212,0,.5); box-shadow: 0 0 30px rgba(255,212,0,.12); }
+    .lvl-vs-h { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: .6rem; }
+    .lvl-vs-col ul { display: grid; gap: .5rem; } .lvl-vs-col li { display: flex; align-items: center; gap: .55rem; font-size: 15px; }
+    .lvl-vs-col li svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .sched { background: #12131d; border: 1px solid #1f2130; border-radius: 22px; padding: 1.2rem 1.3rem; }
+    .sched-next { border-color: rgba(255,212,0,.5); box-shadow: 0 0 30px rgba(255,212,0,.12); }
+    .sched-poster { position: relative; margin: -.3rem -.4rem 1rem; border-radius: 16px; overflow: hidden; }
+    .sched-poster img { width: 100%; height: auto; aspect-ratio: 1/1; display: block; }
+    .sched-status { position: absolute; left: .6rem; top: .6rem; font-size: 11px; font-weight: 800; letter-spacing: .05em; padding: .25rem .65rem; border-radius: 999px; background: var(--y); color: #0b0b12; }
+    .sched-status.done { background: rgba(11,11,18,.85); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+    .sched-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .6rem; }
+    .sched-tag { font-size: 11px; font-weight: 800; letter-spacing: .06em; color: rgba(255,255,255,.55); }
+    .sched-ep { font-size: 11px; font-weight: 800; padding: .15rem .55rem; border-radius: 999px; background: var(--y); color: #0b0b12; }
+    .sched-noposter { aspect-ratio: 1/1; display: grid; place-items: center; align-content: center; gap: .5rem; background: radial-gradient(circle at 50% 40%, rgba(255,212,0,.16), transparent 60%), #0b0b12; border: 1px dashed rgba(255,255,255,.15); }
+    .sched-noposter svg { width: 56px; height: 56px; color: var(--y); }
+    .sched-noposter p { font-family: 'Poppins', sans-serif; font-weight: 800; color: rgba(255,255,255,.5); letter-spacing: .05em; }
+    .sched-status.soon { background: rgba(255,255,255,.1); color: #fff; }
+    .sched-title { display: flex; align-items: center; gap: .5rem; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.2rem; line-height: 1.3; margin-bottom: .75rem; }
+    .sched-meta { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem .8rem; font-size: 14px; color: rgba(255,255,255,.7); }
+    .sched-meta li { display: flex; align-items: center; gap: .4rem; }
+    .sched-meta svg { width: 15px; height: 15px; color: var(--y); flex-shrink: 0; }
+    .bonus { background: #12131d; border: 1px solid rgba(168,85,247,.35); border-radius: 24px; overflow: hidden; }
+    .bonus-img img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; display: block; background: #0b0b12; }
+    .bonus-body { padding: 1.4rem 1.4rem 1.6rem; }
+    .bonus { display: flex; flex-direction: column; }
+    .bonus-body { flex: 1; display: flex; flex-direction: column; }
+    .bonus-body > p:last-child { margin-top: auto; padding-top: 1rem; }
+    @supports (grid-template-rows: subgrid) {
+      @media (min-width: 768px) {
+        .bonus-grid { row-gap: 0; }
+        .bonus-grid .bonus { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
+        .bonus-grid .bonus-body { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+        .bonus-grid .bonus-body > p:last-child { margin-top: 0; align-self: end; }
+      }
+    }
+    .blk-head { text-align: center; margin-bottom: 1.6rem; }
+    .blk-eyebrow { display: inline-flex; align-items: center; gap: .4rem; font-size: 12px; font-weight: 800; letter-spacing: .08em; color: #0b0b12; background: var(--y); padding: .3rem .85rem; border-radius: 999px; box-shadow: 0 0 22px rgba(255,212,0,.35); margin-bottom: .7rem; }
+    .blk-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; }
+    .blk-title .hl { color: var(--y); text-shadow: 0 0 26px rgba(255,212,0,.45); }
+    .bonus-tag { display: inline-flex; align-items: center; gap: .35rem; font-size: 11px; font-weight: 800; letter-spacing: .06em; padding: .2rem .65rem; border-radius: 999px; background: linear-gradient(90deg, var(--c), #a855f7); color: #0b0b12; }
+    .bonus-sub { font-size: 11px; font-weight: 800; letter-spacing: .06em; color: rgba(255,255,255,.55); }
+    .bonus-parts { display: flex; flex-wrap: wrap; gap: .45rem; font-size: 13px; }
+    .bonus-parts li { font-weight: 700; padding: .35rem .8rem; border-radius: 999px; background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.35); color: #fff; }
+    .bonus-green { border-color: rgba(163,230,53,.4); }
+    .bonus-green .bonus-tag { background: linear-gradient(90deg, #a3e635, var(--y)); }
+    .bonus-green .bonus-parts li { background: rgba(163,230,53,.1); border-color: rgba(163,230,53,.4); }
+    .bonus-gh { border-color: rgba(74,222,128,.4); }
+    .bonus-gh .bonus-tag { background: linear-gradient(90deg, #4ade80, #a3e635); }
+    .bonus-gh .bonus-parts li { background: rgba(74,222,128,.1); border-color: rgba(74,222,128,.4); }
+    .bonus-orange { border-color: rgba(249,115,22,.45); }
+    .bonus-orange .bonus-tag { background: linear-gradient(90deg, #f97316, var(--y)); }
+    .bonus-orange .bonus-parts li { background: rgba(249,115,22,.1); border-color: rgba(249,115,22,.45); }
     .stack li span.v { margin-left: auto; font-family: 'Poppins', sans-serif; font-weight: 700; color: rgba(255,255,255,.5); white-space: nowrap; }
 
     /* Jaminan */
@@ -581,7 +639,7 @@
     <div class="relative max-w-3xl mx-auto px-5 pt-8 sm:pt-12 pb-14 text-center">
       <div class="flex justify-center mb-4 rv">
         <span class="inline-flex items-center gap-2 text-xs font-bold bg-white/10 border border-white/15 rounded-full px-3 py-1.5">
-          <span class="live-dot"></span> KELAS LIVE · SABTU, 21 NOV<span class="hidden sm:inline"> 2026</span> · 9 PG – 5 PTG
+          <span class="live-dot"></span> KELAS LIVE · SABTU, <span data-next="short">28 NOV</span><span class="hidden sm:inline"> <span data-next="year">2026</span></span> · 10 PG – 2 PTG
         </span>
       </div>
 
@@ -604,10 +662,9 @@
       </p>
 
       <div class="rv">
-        <div class="mb-2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i><span data-phase-label>LAUNCH PRICE</span></span></div>
-        <div class="price-row mb-1"><span class="price-old text-2xl">RM299</span><span class="price-now text-5xl sm:text-6xl">RM<span data-price>99</span></span></div>
-        <p class="urg mb-5" data-urg>Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <div class="mb-2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i>HARGA SPECIAL</span></div>
+        <div class="price-row mb-4"><span class="price-old text-2xl">RM199</span><span class="price-now text-5xl sm:text-6xl">RM129</span></div>
+        <div><a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a></div>
         <div class="safe mt-4"><span><i data-lucide="video"></i>Rakaman ulang tonton</span><span><i data-lucide="users"></i>Group support VIP</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span></div>
       </div>
 
@@ -626,8 +683,8 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-          <div class="fact"><p class="fact-lbl"><i data-lucide="calendar-days" class="w-3.5 h-3.5"></i>TARIKH</p><p class="fact-val">Sabtu, 21 Nov 2026</p></div>
-          <div class="fact"><p class="fact-lbl"><i data-lucide="clock" class="w-3.5 h-3.5"></i>MASA</p><p class="fact-val">9 pagi – 5 petang</p></div>
+          <div class="fact"><p class="fact-lbl"><i data-lucide="calendar-days" class="w-3.5 h-3.5"></i>TARIKH</p><p class="fact-val">Sabtu, <span data-next="med">28 Nov 2026</span></p></div>
+          <div class="fact"><p class="fact-lbl"><i data-lucide="clock" class="w-3.5 h-3.5"></i>MASA</p><p class="fact-val">10 pagi – 2 petang</p></div>
           <div class="fact col-span-2 sm:col-span-1"><p class="fact-lbl"><i data-lucide="user-round" class="w-3.5 h-3.5"></i>TRAINER</p><p class="fact-val">Coach Mikhail</p></div>
         </div>
       </div>
@@ -697,8 +754,7 @@
       </div>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
     </div>
@@ -816,8 +872,7 @@
       </div>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Saya Nak Bina Sistem Ni · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Saya Nak Bina Sistem Ni · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
     </div>
@@ -848,6 +903,86 @@
       <div class="marquee-rev"><span class="flex"><span class="chip"><i data-lucide="house" class="w-4 h-4 text-volt"></i>Hartanah · Leads</span><span class="chip"><i data-lucide="car" class="w-4 h-4 text-volt"></i>Sewa kereta · Jadual</span><span class="chip"><i data-lucide="dumbbell" class="w-4 h-4 text-volt"></i>Gym · Keahlian</span><span class="chip"><i data-lucide="plane" class="w-4 h-4 text-volt"></i>Agensi umrah · Pakej</span><span class="chip"><i data-lucide="wrench" class="w-4 h-4 text-volt"></i>Bengkel · Job sheet</span><span class="chip"><i data-lucide="package" class="w-4 h-4 text-volt"></i>Dropship · Order</span><span class="chip"><i data-lucide="heart-handshake" class="w-4 h-4 text-volt"></i>NGO · Derma</span></span><span class="flex" aria-hidden="true"><span class="chip"><i data-lucide="house" class="w-4 h-4 text-volt"></i>Hartanah · Leads</span><span class="chip"><i data-lucide="car" class="w-4 h-4 text-volt"></i>Sewa kereta · Jadual</span><span class="chip"><i data-lucide="dumbbell" class="w-4 h-4 text-volt"></i>Gym · Keahlian</span><span class="chip"><i data-lucide="plane" class="w-4 h-4 text-volt"></i>Agensi umrah · Pakej</span><span class="chip"><i data-lucide="wrench" class="w-4 h-4 text-volt"></i>Bengkel · Job sheet</span><span class="chip"><i data-lucide="package" class="w-4 h-4 text-volt"></i>Dropship · Order</span><span class="chip"><i data-lucide="heart-handshake" class="w-4 h-4 text-volt"></i>NGO · Derma</span></span></div>
     </div>
     <p class="text-center text-white/60 mt-6 px-5 rv">Industri anda tak ada dalam senarai? <b class="text-white">Cara binanya tetap sama.</b></p>
+  </section>
+
+  <!-- =========================================================
+       3c. LEVEL: DARI BASIC SAMPAI ADVANCED (beza dengan kelas lain)
+  ========================================================== -->
+  <section id="level" class="py-20 bg-mist border-y border-line deco">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">DARI BASIC SAMPAI ADVANCED</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Kebanyakan kelas vibe coding berhenti di level prompt. <span class="grad-text">Kami bawa anda sampai level industri.</span></h2>
+        <p class="text-white/70 text-lg mt-5 leading-relaxed rv rv-d2">Ramai guru vibe coding di luar sana tak sentuh bahagian teknikal, sebab tak ramai mampu ikut. Di sini kami <b class="text-white">cover bahagian teknikal tu, step by step</b>, sebab matlamat kami satu: lahirkan lebih ramai <b class="text-volt">techpreneur yang berdaya saing</b>.</p>
+      </div>
+
+      <div class="lvl">
+        <article class="lvl-card l1 rv">
+          <div class="lvl-top"><span class="lvl-no">LEVEL 01</span><span class="lvl-meter"><i></i><i></i><i></i><i></i></span></div>
+          <p class="lvl-name">BASIC</p>
+          <h3 class="lvl-title">Asas Vibe Coding</h3>
+          <ul class="lvl-list">
+            <li>Apa itu vibe coding &amp; AI coding tools</li>
+            <li>Setup PC &amp; Claude Code</li>
+            <li>Tulis prompt yang tepat</li>
+            <li>Bina UI pertama anda</li>
+          </ul>
+        </article>
+        <article class="lvl-card l2 rv rv-d1">
+          <div class="lvl-top"><span class="lvl-no">LEVEL 02</span><span class="lvl-meter"><i></i><i></i><i></i><i></i></span></div>
+          <p class="lvl-name">INTERMEDIATE</p>
+          <h3 class="lvl-title">Bina Sistem Sebenar</h3>
+          <ul class="lvl-list">
+            <li>Database &amp; simpan data</li>
+            <li>Components, layout &amp; responsive</li>
+            <li>Sistem yang orang betul-betul guna</li>
+            <li>Debug bila AI buat silap</li>
+          </ul>
+        </article>
+        <article class="lvl-card l3 rv rv-d2">
+          <div class="lvl-top"><span class="lvl-no">LEVEL 03</span><span class="lvl-meter"><i></i><i></i><i></i><i></i></span></div>
+          <p class="lvl-name">TECHNICAL</p>
+          <h3 class="lvl-title">Bawa Sampai Live</h3>
+          <ul class="lvl-list">
+            <li>Git &amp; GitHub</li>
+            <li>API &amp; integrasi (cth. WhatsApp)</li>
+            <li>VPS, domain &amp; SSL</li>
+            <li>Deploy sistem live di internet</li>
+          </ul>
+        </article>
+        <article class="lvl-card l4 rv rv-d3">
+          <div class="lvl-top"><span class="lvl-no">LEVEL 04</span><span class="lvl-meter"><i></i><i></i><i></i><i></i></span></div>
+          <p class="lvl-name">ADVANCED · INDUSTRI</p>
+          <h3 class="lvl-title">Standard Industri</h3>
+          <ul class="lvl-list">
+            <li>MCP &amp; automasi AI</li>
+            <li>Docker &amp; server sendiri</li>
+            <li>Keselamatan &amp; backup data</li>
+            <li>Senibina sistem yang boleh berkembang</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="lvl-vs rv">
+        <div class="lvl-vs-col">
+          <p class="lvl-vs-h text-white/50">Kebanyakan kelas lain</p>
+          <ul>
+            <li><i data-lucide="circle-x" class="ic-x"></i>Berhenti di prompt &amp; demo</li>
+            <li><i data-lucide="circle-x" class="ic-x"></i>Elak bahagian teknikal</li>
+            <li><i data-lucide="circle-x" class="ic-x"></i>App tinggal dalam laptop</li>
+          </ul>
+        </div>
+        <div class="lvl-vs-col on">
+          <p class="lvl-vs-h text-volt">Vibe Coding Fighter</p>
+          <ul>
+            <li><i data-lucide="circle-check" class="ic-ok"></i>Basic sampai advanced, step by step</li>
+            <li><i data-lucide="circle-check" class="ic-ok"></i>Cover teknikal level industri</li>
+            <li><i data-lucide="circle-check" class="ic-ok"></i>Sistem live di server &amp; domain sendiri</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-10 text-center font-display font-extrabold text-2xl sm:text-3xl rv">Kami bukan sekadar ajar guna AI. <span class="text-volt">Kami lahirkan techpreneur.</span></p>
+    </div>
   </section>
 
   <!-- =========================================================
@@ -921,8 +1056,7 @@
       </article>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
 
@@ -1110,8 +1244,7 @@
       </div>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Saya Nak Buat Macam Ni · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Saya Nak Buat Macam Ni · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
     </div>
@@ -1163,7 +1296,7 @@
         <p>Dengan Vibe Coding, cara kita membina sistem dah berubah. AI membolehkan kita menterjemahkan idea kepada sistem yang berfungsi, walaupun kita bukan programmer profesional.</p>
         <p>Dalam kelas ini, saya akan kongsikan workflow yang praktikal, daripada setup environment Vibe Coding, membina sistem dengan AI, sehinggalah deploy ke server supaya boleh diakses secara online.</p>
         <p>Bukan sekadar tengok demo. Kita akan belajar prosesnya langkah demi langkah supaya anda faham bagaimana nak membawa idea sendiri menjadi sistem yang boleh digunakan.</p>
-        <p class="font-bold text-white">Jumpa anda pada 21 November nanti.</p>
+        <p class="font-bold text-white">Jumpa anda pada <span data-next="long">28 November</span> nanti.</p>
         <div class="pt-2">
           <p class="font-display font-extrabold text-xl text-white">Coach Mikhail</p>
           <p class="text-white/50 text-sm">Founder, Digital Scape Venture</p>
@@ -1176,17 +1309,16 @@
           <div class="ticket-info">
             <p class="text-xs font-extrabold tracking-[.12em] text-volt mb-2">TIKET KELAS LIVE</p>
             <ul class="ticket-facts">
-              <li><i data-lucide="calendar-days"></i><span><b>Sabtu</b>21 Nov 2026</span></li>
-              <li><i data-lucide="clock"></i><span><b>9 pagi</b>– 5 petang</span></li>
+              <li><i data-lucide="calendar-days"></i><span><b>Sabtu</b><span data-next="med">28 Nov 2026</span></span></li>
+              <li><i data-lucide="clock"></i><span><b>10 pagi</b>– 2 petang</span></li>
               <li><i data-lucide="user-round"></i><span><b>Trainer</b>Coach Mikhail</span></li>
             </ul>
           </div>
         </div>
         <div class="ticket-side">
           <span class="notch n1" aria-hidden="true"></span><span class="notch n2" aria-hidden="true"></span>
-          <div class="price-row"><span class="price-old text-lg">RM299</span><span class="price-now text-5xl">RM<span data-price>99</span></span></div>
+          <div class="price-row"><span class="price-old text-lg">RM199</span><span class="price-now text-5xl">RM129</span></div>
           <a href="#daftar" class="btn btn-glow px-8 py-3.5 text-base w-full">Ambil Tiket Saya</a>
-          <p class="urg text-xs text-center" data-urg>Naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         </div>
       </div>
     </div>
@@ -1261,37 +1393,143 @@
   <section id="yuran" class="py-20 bg-mist border-y border-line deco">
     <div class="max-w-4xl mx-auto px-5">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">APA YANG ANDA DAPAT</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Semua ini, untuk harga <span class="text-volt">kurang dari upah developer untuk satu halaman web.</span></h2>
+        <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">PAKEJ LENGKAP</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">4 kelas LIVE + 4 e-course dalam satu pakej, untuk harga <span class="text-volt">kurang dari upah developer untuk satu halaman web.</span></h2>
       </div>
 
+      <!-- Jadual kelas dalam pakej -->
+      <div class="blk-head rv"><span class="blk-eyebrow"><i data-lucide="calendar-days" class="w-4 h-4"></i>4 KELAS LIVE</span><h3 class="blk-title">Jadual <span class="hl">Kelas</span></h3></div>
+      <div class="grid sm:grid-cols-2 gap-5 mb-10">
+        <article class="sched rv" data-start="2026-11-21T10:00:00+08:00">
+          <div class="sched-poster"><img src="./assets/poster-ep01.webp" alt="Poster Vibe Coding From Scratch Episode 01: Task Management System" loading="lazy" data-ph="Poster EP 01" data-ratio="1/1" onerror="ph(this)" /><span class="sched-status done">SELESAI · RAKAMAN DISEDIAKAN</span></div>
+          <div class="sched-top"><span class="sched-tag">VIBE CODING FROM SCRATCH</span><span class="sched-ep">EP 01</span></div>
+          <h3 class="sched-title"><i data-lucide="clipboard-check" class="w-5 h-5 text-volt shrink-0"></i>Task Management System</h3>
+          <ul class="sched-meta">
+            <li><i data-lucide="calendar-days"></i>Sabtu, 21 Nov 2026</li>
+            <li><i data-lucide="clock"></i>10 pagi – 2 petang</li>
+            <li><i data-lucide="video"></i>Zoom Online</li>
+            <li><i data-lucide="user"></i>Coach Mikhail</li>
+          </ul>
+        </article>
+        <article class="sched rv rv-d1" data-start="2026-11-28T10:00:00+08:00">
+          <div class="sched-poster"><img src="./assets/poster-ep02.webp" alt="Poster Vibe Coding From Scratch Episode 02: WhatsApp CRM System" loading="lazy" data-ph="Poster EP 02" data-ratio="1/1" onerror="ph(this)" /><span class="sched-status">KELAS SETERUSNYA · SABTU INI</span></div>
+          <div class="sched-top"><span class="sched-tag">VIBE CODING FROM SCRATCH</span><span class="sched-ep">EP 02</span></div>
+          <h3 class="sched-title"><i data-lucide="message-circle" class="w-5 h-5 text-volt shrink-0"></i>WhatsApp CRM System</h3>
+          <ul class="sched-meta">
+            <li><i data-lucide="calendar-days"></i>Sabtu, 28 Nov 2026</li>
+            <li><i data-lucide="clock"></i>10 pagi – 2 petang</li>
+            <li><i data-lucide="video"></i>Zoom Online</li>
+            <li><i data-lucide="user"></i>Coach Wan</li>
+          </ul>
+        </article>
+        <article class="sched rv rv-d2" data-start="2026-12-05T10:00:00+08:00">
+          <div class="sched-poster"><img src="./assets/poster-ep03.webp" alt="Poster Vibe Coding From Scratch Episode 03: Social Media Auto-Posting System" loading="lazy" data-ph="Poster EP 03" data-ratio="1/1" onerror="ph(this)" /><span class="sched-status soon">AKAN DATANG</span></div>
+          <div class="sched-top"><span class="sched-tag">VIBE CODING FROM SCRATCH</span><span class="sched-ep">EP 03</span></div>
+          <h3 class="sched-title"><i data-lucide="share-2" class="w-5 h-5 text-volt shrink-0"></i>Social Media Auto-Posting System</h3>
+          <ul class="sched-meta">
+            <li><i data-lucide="calendar-days"></i>Sabtu, 5 Dis 2026</li>
+            <li><i data-lucide="clock"></i>10 pagi – 2 petang</li>
+            <li><i data-lucide="video"></i>Zoom Online</li>
+            <li><i data-lucide="user"></i>Coach Mikhail</li>
+          </ul>
+        </article>
+        <article class="sched rv rv-d3" data-start="2026-12-19T10:00:00+08:00">
+          <div class="sched-poster sched-noposter"><span class="sched-status soon">AKAN DATANG</span><i data-lucide="ticket"></i><p>Episode 04</p></div>
+          <div class="sched-top"><span class="sched-tag">VIBE CODING FROM SCRATCH</span><span class="sched-ep">EP 04</span></div>
+          <h3 class="sched-title"><i data-lucide="ticket" class="w-5 h-5 text-volt shrink-0"></i>E-Ticketing System</h3>
+          <ul class="sched-meta">
+            <li><i data-lucide="calendar-days"></i>Sabtu, 19 Dis 2026</li>
+            <li><i data-lucide="clock"></i>10 pagi – 2 petang</li>
+            <li><i data-lucide="video"></i>Zoom Online</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Bonus 1: e-course -->
+      <div class="blk-head rv"><span class="blk-eyebrow"><i data-lucide="gift" class="w-4 h-4"></i>PERCUMA DALAM PAKEJ</span><h3 class="blk-title">Bonus <span class="hl">E-Course</span></h3></div>
+      <div class="bonus-grid grid md:grid-cols-2 gap-5 mb-10">
+      <article class="bonus rv">
+        <div class="bonus-img"><img src="./assets/bonus-ui-ecourse.webp" alt="E-course Mastering UI for Vibe Coding" loading="lazy" data-ph="Mastering UI for Vibe Coding" data-ratio="16/9" onerror="ph(this)" /></div>
+        <div class="bonus-body">
+          <div class="flex flex-wrap items-center gap-2 mb-3"><span class="bonus-tag"><i data-lucide="gift" class="w-3.5 h-3.5"></i>BONUS 1</span><span class="bonus-sub">E-COURSE · 19 VIDEO</span></div>
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight mb-3">Mastering UI for Vibe Coding</h3>
+          <p class="text-white/70 leading-relaxed mb-4">Bina UI moden dan professional dengan bantuan AI. Setiap video ada concept slide dan live playground.</p>
+          <ul class="bonus-parts">
+            <li>Foundations</li><li>Components</li><li>Layout</li><li>Responsive</li><li>AI Workflow</li>
+          </ul>
+          <p class="text-volt font-extrabold mt-4">Understand UI, control the AI! 🚀</p>
+        </div>
+      </article>
+
+      <!-- Bonus 2: e-course -->
+      <article class="bonus bonus-green rv rv-d1">
+        <div class="bonus-img"><img src="./assets/bonus-super-stack.webp" alt="E-course Vibe Coder Super Stack" loading="lazy" data-ph="Vibe Coder Super Stack" data-ratio="16/9" onerror="ph(this)" /></div>
+        <div class="bonus-body">
+          <div class="flex flex-wrap items-center gap-2 mb-3"><span class="bonus-tag"><i data-lucide="gift" class="w-3.5 h-3.5"></i>BONUS 2</span><span class="bonus-sub">E-COURSE · KHAS UNTUK BEGINNER</span></div>
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight mb-3">Vibe Coder Super Stack</h3>
+          <p class="text-white/70 leading-relaxed mb-4">Faham stack di sebalik setiap app moden, dari idea sampai live. Tak perlu tahu coding pun untuk mula.</p>
+          <ul class="bonus-parts">
+            <li>AI Coding</li><li>The Toolbox</li><li>Data &amp; APIs</li><li>Go Live</li><li>Own It</li>
+          </ul>
+          <p class="text-volt font-extrabold mt-4">From idea to a live app, one video at a time! 🚀</p>
+        </div>
+      </article>
+      <!-- Bonus 3: GitHub -->
+      <article class="bonus bonus-gh rv rv-d1">
+        <div class="bonus-img"><img src="./assets/bonus-github.webp" alt="E-course GitHub Power Skills for Vibe Coders" loading="lazy" data-ph="GitHub Power Skills for Vibe Coders" data-ratio="16/9" onerror="ph(this)" /></div>
+        <div class="bonus-body">
+          <div class="flex flex-wrap items-center gap-2 mb-3"><span class="bonus-tag"><i data-lucide="gift" class="w-3.5 h-3.5"></i>BONUS 3</span><span class="bonus-sub">E-COURSE · DEMO TERMINAL LIVE</span></div>
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight mb-3">GitHub Power Skills for Vibe Coders</h3>
+          <p class="text-white/70 leading-relaxed mb-4">Pastikan code sentiasa selamat, tersusun dan boleh di-deploy, tanpa perlu hafal command atau jadi programmer.</p>
+          <ul class="bonus-parts">
+            <li>Foundations</li><li>Save &amp; Send</li><li>Branching</li><li>Automation</li>
+          </ul>
+          <p class="text-volt font-extrabold mt-4">From laptop to live, with GitHub as your safety net! 🚀</p>
+        </div>
+      </article>
+
+      <!-- Bonus 4: Cloudflare -->
+      <article class="bonus bonus-orange rv">
+        <div class="bonus-img"><img src="./assets/bonus-cloudflare.webp" alt="E-course Cloudflare Gatekeeper for Vibe Coders" loading="lazy" data-ph="Cloudflare Gatekeeper for Vibe Coders" data-ratio="16/9" onerror="ph(this)" /></div>
+        <div class="bonus-body">
+          <div class="flex flex-wrap items-center gap-2 mb-3"><span class="bonus-tag"><i data-lucide="gift" class="w-3.5 h-3.5"></i>BONUS 4</span><span class="bonus-sub">E-COURSE · PLAN PERCUMA</span></div>
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight mb-3">Cloudflare Gatekeeper for Vibe Coders</h3>
+          <p class="text-white/70 leading-relaxed mb-4">Letak Cloudflare di depan app anda di VPS untuk jaga domain, keselamatan dan storage. Semuanya guna plan percuma.</p>
+          <ul class="bonus-parts">
+            <li>Domain &amp; DNS</li><li>Proxy &amp; SSL</li><li>Security</li><li>R2 Cloud Storage</li>
+          </ul>
+          <p class="text-volt font-extrabold mt-4">Cloudflare in front, your app stays home! 🚀</p>
+        </div>
+      </article>
+      </div>
+
+      <div class="blk-head rv"><span class="blk-eyebrow"><i data-lucide="package-check" class="w-4 h-4"></i>RINGKASAN NILAI</span><h3 class="blk-title">Apa yang anda dapat, <span class="hl">hanya dengan satu harga</span></h3></div>
       <div class="max-w-2xl mx-auto bg-card rounded-3xl border border-line p-6 sm:p-9 rv">
         <ul class="stack text-[16px] sm:text-[17px]">
-          <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Kelas LIVE sehari penuh</b> — Sabtu, 21 Nov 2026 (9 pagi – 5 petang)</span><span class="v">RM499</span></li>
-          <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>7 modul praktikal</b> — dari setup PC sampai sistem live</span><span class="v">RM350</span></li>
+          <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>4x Kelas LIVE Vibe Coding From Scratch</b> — Task Management, WhatsApp CRM, Social Media Auto-Posting &amp; E-Ticketing System</span><span class="v">RM1,196</span></li>
+          <li><i data-lucide="gift" class="w-5 h-5 text-volt shrink-0"></i><span><b>Bonus 1: E-course Mastering UI for Vibe Coding</b> — 19 video, step by step</span><span class="v">RM99</span></li>
+          <li><i data-lucide="gift" class="w-5 h-5 text-volt shrink-0"></i><span><b>Bonus 2: E-course Vibe Coder Super Stack</b> — dari idea sampai app live</span><span class="v">RM99</span></li>
+          <li><i data-lucide="gift" class="w-5 h-5 text-volt shrink-0"></i><span><b>Bonus 3: E-course GitHub Power Skills for Vibe Coders</b> — code selamat &amp; auto deploy</span><span class="v">RM99</span></li>
+          <li><i data-lucide="gift" class="w-5 h-5 text-volt shrink-0"></i><span><b>Bonus 4: E-course Cloudflare Gatekeeper for Vibe Coders</b> — domain, keselamatan &amp; storage</span><span class="v">RM99</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Rakaman kelas</b> untuk ulang tonton</span><span class="v">RM199</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Group support VIP</b> — tanya bila tersekat</span><span class="v">RM199</span></li>
           <li><i data-lucide="circle-check" class="w-5 h-5 text-volt shrink-0"></i><span><b>Jaminan Sampai Live</b> — sesi bantuan susulan jika perlu</span><span class="v">RM150</span></li>
         </ul>
         <div class="flex items-center justify-between pt-5 mt-1">
           <p class="font-bold text-white/70">Jumlah nilai</p>
-          <p class="font-display font-extrabold text-2xl text-white/40 line-through decoration-[#ff3b3b]">RM1,397</p>
+          <p class="font-display font-extrabold text-2xl text-white/40 line-through decoration-[#ff3b3b]">RM2,140</p>
+        </div>
+        <div class="flex items-center justify-between pt-3 mt-3 border-t border-line">
+          <p class="font-extrabold text-white">Harga anda hari ini</p>
+          <p class="font-display font-extrabold text-3xl text-volt" style="text-shadow:0 0 24px rgba(255,212,0,.45)">RM129</p>
         </div>
       </div>
 
-      <p class="text-center font-extrabold text-lg mt-10 mb-5 rv">Harga naik setiap fasa. Lagi awal daftar, lagi jimat.</p>
-      <div class="ladder rv" id="ladder">
-        <div class="step-p" data-phase="0"><span class="sp-tag">SEKARANG</span><p class="sp-d">16 – 17 NOV</p><p class="sp-v">RM99</p></div>
-        <div class="step-p" data-phase="1"><span class="sp-tag">SEKARANG</span><p class="sp-d">18 – 19 NOV</p><p class="sp-v">RM129</p></div>
-        <div class="step-p" data-phase="2"><span class="sp-tag">SEKARANG</span><p class="sp-d">20 NOV</p><p class="sp-v">RM149</p></div>
-        <div class="step-p" data-phase="3"><span class="sp-tag">SEKARANG</span><p class="sp-d">21 NOV</p><p class="sp-v">RM199</p></div>
-      </div>
 
       <div class="max-w-xl mx-auto mt-10 bg-ink rounded-3xl p-7 sm:p-9 text-center spin-border rv">
-        <p class="text-sm font-extrabold tracking-wide text-white/60 mb-1"><span data-phase-label>LAUNCH PRICE</span> · HARI INI</p>
-        <div class="price-row mb-2"><span class="price-old text-3xl">RM299</span><span class="price-now text-6xl">RM<span data-price>99</span></span></div>
-        <p class="urg mb-6" data-urg>Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow w-full px-6 py-4 text-lg"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <p class="text-sm font-extrabold tracking-wide text-white/60 mb-1">HARGA SPECIAL · HARI INI</p>
+        <div class="price-row mb-2"><span class="price-old text-3xl">RM199</span><span class="price-now text-6xl">RM129</span></div>
+        <a href="#daftar" class="btn btn-glow w-full px-6 py-4 text-lg"><span>Daftar Sekarang · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-4"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
     </div>
@@ -1320,15 +1558,14 @@
       <div class="text-center mb-10">
         <p class="text-volt font-extrabold text-sm tracking-wide mb-3 rv">PENDAFTARAN</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight rv rv-d1">Daftar dalam masa 2 minit je.</h2>
-        <p class="mt-4 rv rv-d2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i><span>HARGA HARI INI RM<span data-price>99</span></span></span></p>
-        <p class="urg mt-3 rv" data-urg>Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
+        <p class="mt-4 rv rv-d2"><span class="phase-pill"><i data-lucide="flame" class="w-3.5 h-3.5"></i><span>HARGA HARI INI RM129</span></span></p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 rv">
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">1</span><p class="text-sm"><b>Isi maklumat</b> dan pilih pakej anda</p></div>
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">2</span><p class="text-sm"><b>Buat bayaran</b> secara online dengan selamat</p></div>
         <div class="bg-card border border-line rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 text-volt font-extrabold grid place-items-center text-sm">3</span><p class="text-sm"><b>Semak emel</b> (termasuk Spam/Promotions) untuk pengesahan &amp; link group</p></div>
-        <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> 21 November dan terus bina</p></div>
+        <div class="bg-card border border-volt/40 rounded-2xl p-4 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-volt text-ink font-extrabold grid place-items-center text-sm">4</span><p class="text-sm"><b>Hadir kelas LIVE</b> <span data-next="long">28 November</span> dan terus bina</p></div>
       </div>
 
       <div class="bcl-card rounded-3xl overflow-hidden border-2 border-volt/60 shadow-[0_0_60px_-20px_rgba(255,212,0,.45)] rv">
@@ -1362,10 +1599,6 @@
           <p class="text-white/65 mt-3">Terus terang: Claude Code perlukan langganan Claude berbayar (bulanan), dan untuk letak sistem secara online anda perlukan VPS dan domain sendiri. Kami tunjuk pilihan yang paling jimat dalam kelas.</p>
         </details>
         <details class="bg-card border border-line rounded-2xl p-5 rv">
-          <summary class="flex justify-between items-center gap-4 font-bold text-lg">Kenapa harga naik ikut tarikh?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
-          <p class="text-white/65 mt-3">Untuk hargai yang buat keputusan awal. RM99 sehingga 17 Nov, RM129 pada 18–19 Nov, RM149 pada 20 Nov dan RM199 pada hari kelas. Semua peserta layak, tak kira pernah sertai kelas lain atau tidak.</p>
-        </details>
-        <details class="bg-card border border-line rounded-2xl p-5 rv">
           <summary class="flex justify-between items-center gap-4 font-bold text-lg">Lepas kelas, betul ke saya boleh bina sistem sendiri?<i data-lucide="plus" class="faq-plus w-6 h-6 text-volt shrink-0"></i></summary>
           <p class="text-white/65 mt-3">Matlamat kelas ni ialah supaya anda faham keseluruhan proses — bina sistem, simpan data dan naikkan sistem secara live — dan boleh ulang sendiri untuk projek seterusnya. Hasil akhir tetap bergantung pada latihan anda lepas kelas.</p>
         </details>
@@ -1382,11 +1615,10 @@
           <p class="text-white/65 mt-3">WhatsApp kami di <a href="https://wa.me/60179525174" target="_blank" rel="noopener" class="font-bold text-volt underline">017-952 5174</a>. Kami sedia bantu.</p>
         </details>
       </div>
-      <p class="text-center text-white/60 mt-10 rv">Dah jelas? Jangan tunggu harga naik.</p>
+      <p class="text-center text-white/60 mt-10 rv">Dah jelas? Jom daftar sekarang.</p>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
-        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM<span data-price>99</span></span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+        <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto"><span>Daftar Sekarang · RM129</span> <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
     </div>
@@ -1399,10 +1631,9 @@
     <div class="max-w-3xl mx-auto px-5 text-center">
       <img src="./assets/logo-vbfighter.webp" alt="Vibe Coding Fighter" class="w-60 sm:w-72 h-auto mx-auto mb-8 rv" loading="lazy" onerror="this.remove()" />
       <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-5 rv">Minggu depan, anda masih tunggu developer… <span class="grad-text">atau dah ada sistem sendiri yang live?</span></h2>
-      <p class="text-white/70 text-lg mb-2 rv rv-d1">Sabtu, 21 November ini. Satu hari. Dari folder kosong sampai sistem anda dibuka orang di internet.</p>
+      <p class="text-white/70 text-lg mb-2 rv rv-d1">Kelas LIVE seterusnya: Sabtu, <span data-next="long">28 November</span> ini. Dari folder kosong sampai sistem anda dibuka orang di internet.</p>
 
       <div class="cta-block rv">
-        <p class="urg mb-3" data-urg><i data-lucide="alarm-clock" class="inline w-4 h-4 -mt-0.5"></i> Harga naik ke RM<span data-next-price>129</span> dalam <b data-pcd>--:--:--</b></p>
         <a href="#daftar" class="btn btn-glow px-10 py-4 text-lg w-full sm:w-auto">Daftar &amp; Tempah Tempat Saya <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
         <div class="safe mt-3"><span><i data-lucide="video"></i>Rakaman disediakan</span><span><i data-lucide="shield-check"></i>Jaminan Sampai Live</span><span><i data-lucide="lock"></i>FPX / DuitNow</span></div>
       </div>
@@ -1427,8 +1658,8 @@
 
   <!-- Bar CTA mudah alih -->
   <div id="mbar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-night/95 backdrop-blur border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3 translate-y-full transition-transform duration-300">
-    <div class="leading-tight"><p class="text-xs text-white/50 font-bold">KELAS LIVE · 21 NOV · <span class="line-through">RM299</span></p><p class="font-display font-extrabold text-lg"><span class="text-volt">RM<span data-price>99</span></span> <span class="text-xs font-bold text-[#ffb4b4]" data-urg>· naik <b data-pcd-short>esok</b></span></p></div>
-    <a href="#daftar" class="btn btn-glow px-5 py-3"><span>Daftar · RM<span data-price>99</span></span></a>
+    <div class="leading-tight"><p class="text-xs text-white/50 font-bold">KELAS LIVE · <span data-next="short">28 NOV</span> · <span class="line-through">RM199</span></p><p class="font-display font-extrabold text-lg"><span class="text-volt">RM129</span></p></div>
+    <a href="#daftar" class="btn btn-glow px-5 py-3"><span>Daftar · RM129</span></a>
   </div>
 
   <!-- WhatsApp terapung -->
@@ -1446,53 +1677,49 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
     lucide.createIcons();
 
-    /* Countdown ke kelas: Sabtu 21 November 2026, 9:00 pagi waktu Malaysia */
-    const target = new Date('2026-11-21T09:00:00+08:00').getTime();
+    /* Countdown ke kelas seterusnya — auto tukar bila kelas semasa tamat.
+       Jadual diambil dari kad .sched[data-start]; kelas dikira tamat 4 jam selepas mula (10 pg – 2 ptg).
+       Uji: tambah ?now=2026-11-28T15:00:00%2B08:00 pada URL */
     const pad = n => String(n).padStart(2, '0');
+    const CLASS_HOURS = 4;
+    const qNow = new URLSearchParams(location.search).get('now');
+    const nowOffset = qNow && !isNaN(Date.parse(qNow)) ? Date.parse(qNow) - Date.now() : 0;
+    const now = () => Date.now() + nowOffset;
+    const BLN = ['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember'];
+    const BLN_S = ['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogos','Sep','Okt','Nov','Dis'];
+    const classes = [...document.querySelectorAll('.sched[data-start]')]
+      .map(el => ({ el, start: Date.parse(el.dataset.start) })).sort((a, b) => a.start - b.start);
+    let target = 0, nextIdx = -2;
+    function setSchedule() {
+      const t = now();
+      const i = classes.findIndex(c => t < c.start + CLASS_HOURS * 36e5);
+      if (i === nextIdx) return;
+      nextIdx = i;
+      classes.forEach((c, k) => {
+        const st = c.el.querySelector('.sched-status');
+        const past = i === -1 || k < i, next = k === i, live = next && t >= c.start;
+        c.el.classList.toggle('sched-next', next);
+        if (st) {
+          st.classList.toggle('done', past); st.classList.toggle('soon', !past && !next);
+          st.textContent = past ? 'SELESAI · RAKAMAN DISEDIAKAN' : live ? 'SEDANG BERLANGSUNG' : next ? 'KELAS SETERUSNYA' : 'AKAN DATANG';
+        }
+      });
+      if (i === -1) return;
+      target = classes[i].start;
+      const d = new Date(target + 8 * 36e5); // tarikh ikut waktu Malaysia
+      const dd = d.getUTCDate(), mm = d.getUTCMonth(), yy = d.getUTCFullYear();
+      const fmt = { long: `${dd} ${BLN[mm]}`, med: `${dd} ${BLN_S[mm]} ${yy}`, short: `${dd} ${BLN_S[mm].toUpperCase()}`, year: `${yy}` };
+      document.querySelectorAll('[data-next]').forEach(el => el.textContent = fmt[el.dataset.next]);
+    }
     function tick() {
-      let t = Math.max(0, target - Date.now());
+      setSchedule();
+      let t = Math.max(0, target - now());
       const v = { d: Math.floor(t / 864e5), h: Math.floor(t / 36e5) % 24, m: Math.floor(t / 6e4) % 60, s: Math.floor(t / 1e3) % 60 };
       document.querySelectorAll('[data-cd]').forEach(el => el.textContent = pad(v[el.dataset.cd]));
       document.querySelectorAll('.cd-tick').forEach(el => { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); });
     }
     tick(); setInterval(tick, 1000);
 
-    /* Harga ikut fasa (masa Malaysia). Uji: tambah ?now=2026-11-18T00:00:01%2B08:00 pada URL */
-    const PHASES = [
-      { until: '2026-11-18T00:00:00+08:00', price: 99,  next: 129, label: 'LAUNCH PRICE' },
-      { until: '2026-11-20T00:00:00+08:00', price: 129, next: 149, label: 'EARLY BIRD' },
-      { until: '2026-11-21T00:00:00+08:00', price: 149, next: 199, label: 'LAST CALL' },
-      { until: null,                        price: 199, next: null, label: 'NORMAL PRICE' },
-    ];
-    const qNow = new URLSearchParams(location.search).get('now');
-    const offset = qNow && !isNaN(Date.parse(qNow)) ? Date.parse(qNow) - Date.now() : 0;
-    const now = () => Date.now() + offset;
-    let curPhase = -1;
-    function priceTick() {
-      const t = now();
-      const i = PHASES.findIndex(p => !p.until || t < Date.parse(p.until));
-      const ph = PHASES[i];
-      if (i !== curPhase) {
-        curPhase = i;
-        document.querySelectorAll('[data-price]').forEach(el => el.textContent = ph.price);
-        document.querySelectorAll('[data-next-price]').forEach(el => el.textContent = ph.next || '');
-        document.querySelectorAll('[data-phase-label]').forEach(el => el.textContent = ph.label);
-        document.querySelectorAll('[data-urg]').forEach(el => el.hidden = !ph.next);
-        document.querySelectorAll('#ladder .step-p').forEach(el => {
-          const k = +el.dataset.phase;
-          el.classList.toggle('past', k < i); el.classList.toggle('now', k === i); el.classList.toggle('future', k > i);
-          el.classList.toggle('spin-border', k === i);
-        });
-      }
-      if (ph.next) {
-        const left = Math.max(0, Date.parse(ph.until) - t);
-        const h = Math.floor(left / 36e5), m = Math.floor(left / 6e4) % 60, sec = Math.floor(left / 1e3) % 60;
-        const txt = h >= 24 ? `${Math.floor(h / 24)} hari ${pad(h % 24)}:${pad(m)}:${pad(sec)}` : `${pad(h)}:${pad(m)}:${pad(sec)}`;
-        document.querySelectorAll('[data-pcd]').forEach(el => el.textContent = txt);
-        document.querySelectorAll('[data-pcd-short]').forEach(el => el.textContent = h >= 24 ? `${Math.floor(h / 24)} hari lagi` : `dalam ${pad(h)}:${pad(m)}`);
-      }
-    }
-    priceTick(); setInterval(priceTick, 1000);
 
     /* Autoplay video wajib: paksa main bila kelihatan; jika browser sekat
        (Low Power Mode / in-app browser), main pada sentuhan pertama */
